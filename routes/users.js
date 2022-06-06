@@ -4,6 +4,7 @@ const db = require('../db/models');
 const router = express.Router();
 const { csrfProtection, asyncHandler } = require('./utils');
 const bcrypt = require('bcryptjs')
+const { loginUser } = require('../auth');
 
 
 
@@ -106,6 +107,7 @@ router.post('/register', csrfProtection, userValidators,
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashedPassword = hashedPassword;
       await user.save();
+      loginUser(req, res, user); //login user after successful registration
       res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
@@ -118,7 +120,7 @@ router.post('/register', csrfProtection, userValidators,
     }
   }));
 
-  
+
 
   //LOGIN ROUTES
 
@@ -175,3 +177,6 @@ router.post('/register', csrfProtection, userValidators,
     }));
 
 module.exports = router;
+
+
+//Left off at Restoring authenticated user from session

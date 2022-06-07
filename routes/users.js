@@ -4,7 +4,7 @@ const db = require('../db/models');
 const router = express.Router();
 const { csrfProtection, asyncHandler } = require('./utils');
 const bcrypt = require('bcryptjs')
-const { loginUser } = require('../auth');
+const { loginUser, logoutUser } = require('../auth');
 
 
 
@@ -149,6 +149,11 @@ router.post('/register', csrfProtection, userValidators,
           }
         });
 
+        if(emailAddress === 'demo@netscape.com'){
+          loginUser(req, res, user)
+          return res.redirect('/');
+        }
+
         if (user !== null) {
           // If the user exists then compare their password
           // to the provided password.
@@ -175,6 +180,17 @@ router.post('/register', csrfProtection, userValidators,
         csrfToken: req.csrfToken(),
       });
     }));
+
+    router.post('/demo', async(req, res) => {
+      const user = await db.User.findByPk(1);
+      loginUser(req, res, user);
+      res.redirect('/')
+    })
+
+    router.post('/logout', (req, res) => {
+      logoutUser(req, res);
+      res.redirect('/');
+    });
 
 module.exports = router;
 

@@ -62,6 +62,7 @@ module.exports = {
         trackLists: "Foreword,Where This Flower Blooms,Sometimes...,See You Again,Who Dat Boy,Pothole,Garden Shed,Boredom,I Ain't Got Time!,911 Mr.Lonely,Droppin' Seeds,November,Glitter,Enjoy Right Now Today",
         genre: "Rap",
         artist: "Tyler, The Creator",
+        releaseDate: 2017,
         createdAt: new Date(),
         updatedAt: new Date()
       },

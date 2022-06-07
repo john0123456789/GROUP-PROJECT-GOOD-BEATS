@@ -7,8 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     artist: DataTypes.STRING,
     releaseDate: DataTypes.INTEGER
   }, {});
-  Album.associate = function(models) {
+  Album.associate = function (models) {
     Album.hasMany(models.Review, { foreignKey: 'albumId' })
+    const columnMapping = { through: 'AlbumLibrary', otherKey: 'libraryId', foreignKey: 'albumId' }
+    Album.belongsToMany(models.Library, columnMapping)
   };
   return Album;
 };

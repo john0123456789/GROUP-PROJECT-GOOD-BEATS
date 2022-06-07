@@ -151,7 +151,8 @@ router.post('/register', csrfProtection, userValidators,
 
         if(emailAddress === 'demo@netscape.com'){
           loginUser(req, res, user)
-          return res.redirect('/');
+          return req.session.save(( ) => res.redirect('/'))
+          // res.redirect('/');
         }
 
         if (user !== null) {
@@ -163,7 +164,7 @@ router.post('/register', csrfProtection, userValidators,
             // If the password hashes match, then login the user
             // and redirect them to the default route.
             loginUser(req, res, user);
-            return res.redirect('/');
+            return req.session.save(( ) => res.redirect('/'))
           }
         }
 
@@ -181,15 +182,9 @@ router.post('/register', csrfProtection, userValidators,
       });
     }));
 
-    router.post('/demo', async(req, res) => {
-      const user = await db.User.findByPk(1);
-      loginUser(req, res, user);
-      res.redirect('/')
-    })
-
     router.post('/logout', (req, res) => {
       logoutUser(req, res);
-      res.redirect('/');
+      return req.session.save(( ) => res.redirect('/'))
     });
 
 module.exports = router;

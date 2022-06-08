@@ -9,7 +9,7 @@ const {requireAuth} = require('../auth.js');
 router.get('/', async(req, res) => {
   const reviews = await db.Review.findAll();
   res.send(reviews);
-})
+});
 
 router.get('/new', csrfProtection, requireAuth, async(req, res) => {
   const albums = await db.Album.findAll();

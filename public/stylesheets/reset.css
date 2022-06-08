@@ -26,20 +26,3 @@ h1 {
   font-size: 2rem;
 }
 
-.login-container {
-  display: grid;
-  margin: 10px;
-  justify-content: center;
-}
-
-#login-form{
-  display: grid;
-}
-
-#login-header {
-  display: grid;
-}
-
-#reg-form {
-  text-align: center;
-}

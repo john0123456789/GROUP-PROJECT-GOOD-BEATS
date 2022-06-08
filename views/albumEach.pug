@@ -1,6 +1,9 @@
 extends layout.pug
 
 block content
+ p.hidden= `Welcome ${user.userId}`
+ script(type="module" src="/javascripts/createLibrary.js")
+ link(rel='stylesheet' href='/stylesheets/index.css')
  ul TRACK LIST
    each track in trackList
     li= track
@@ -10,3 +13,10 @@ block content
     li= review.title
       p= review.content
       p= `${review.rating}/5`
+ div.add-library-container
+  label 
+  select
+    each library in libraries 
+      option= library.name
+ button.create-library Add Library
+

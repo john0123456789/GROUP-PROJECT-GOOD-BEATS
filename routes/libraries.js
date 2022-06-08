@@ -18,6 +18,8 @@ router.get('/:id(\\d+)', async(req, res) => {
     const allAlbums = await db.Album.findAll({where: {
         id: albumIds
     }});
+
+
     
     // res.send(allAlbums);
     res.render('library', {library, allAlbums})

@@ -5,6 +5,11 @@ const router = express.Router();
 const { csrfProtection, asyncHandler } = require('./utils');
 const {requireAuth} = require('../auth.js');
 
+
+router.get('/', async(req, res) => {
+  const reviews = await db.Review.findAll();
+  res.send(reviews);
+})
 router.get('/new', csrfProtection, requireAuth, async(req, res) => {
   const reviews = await db.Review.findAll();
   res.render('reviews', {csrfToken: req.csrfToken(), data: {}, reviews})

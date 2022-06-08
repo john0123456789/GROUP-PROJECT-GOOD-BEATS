@@ -19,5 +19,15 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
   res.render('albumEach', { album, trackList })
 }))
 
+router.get('/:id(\\d+)', async(req, res) => {
+  const reviews = await db.Review.findAll({
+    include: Album
+  })
+  console.log(reviews)
+  //get reviews include albumId
+  //if albumId = :id
+    //res.render review
+})
+
 
 module.exports = router;

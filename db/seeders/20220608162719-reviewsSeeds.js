@@ -48,7 +48,7 @@ module.exports = {
      title: "JUSTIN BEIBER <3!!!!",
      content: "BABY BABY BABY OHHHHH!!",
      rating: 5,
-     userID: 6,
+     userId: 6,
      albumId: 29,
      createdAt: new Date(),
      updatedAt: new Date()

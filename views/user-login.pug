@@ -1,20 +1,23 @@
 include utils.pug
 html
   head
-    link(rel='stylesheet' href='/stylesheets/reset.css')
+    link(rel='stylesheet' href='/stylesheets/login.css')
     script(type="module" src="../javascripts/demoLogin.js")
   body
     block content
-    .login-container
-      +validationErrorSummary(errors)
-      form(id="login-form" action='/users/login' method='post')
-        h2(id='login-header') Please Log in:
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Email Address', 'emailAddress', emailAddress)
-        +field('Password', 'password', null, 'password')
-        div(class='py-4')
-          button(id="submitButton" type='submit' class='loginButtons') Login
-          button(class="loginButtons" id='demo') Demo
-          a(href='/' class='btn btn-warning ml-2') Cancel
-      div
-          p: a(href='/users/register') Don't have an account?
+      .logo good
+        span beats
+      .form-container
+        form(action='/users/login' method='post' class='form-wrapper')
+          h2(id='login-header') Sign In
+          +validationErrorSummary(errors)
+          input(type='hidden' name='_csrf' value=csrfToken)
+          +field('Email', 'emailAddress', emailAddress)
+          +field('Password', 'password', null, 'password')
+          div(class='py-4')
+            button(type='submit' class='loginButtons') Sign In
+            button(class="loginButtons" id='demo') Demo
+          .divider
+            span(id="break") New to Goodbeats?
+          button(class="loginButtons" id="sign-up"): a(href='/users/register') Sign Up
+      

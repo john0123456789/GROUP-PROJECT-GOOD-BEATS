@@ -4,3 +4,9 @@ block content
  ul TRACK LIST
    each track in trackList
     li= track
+
+ ul REVIEWS
+   each review in reviews
+    li= review.title
+      p= review.content
+      p= `${review.rating}/5`

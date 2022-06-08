@@ -1,0 +1,8 @@
+html 
+    header 
+        title= `${library.name}`
+    body
+         h1= `${library.User.username}'s ${library.name} Library`
+         ul         
+            each album in allAlbums 
+                li.album-titles: a(href=`/albums/${album.id}`)= album.title 

@@ -4,11 +4,11 @@ block content
   form(action="/reviews", method="post")
     input(type="hidden" name="_csrf" value=csrfToken)
     label Title
-    input(type="text" name="Title" value=review.title)
+    input(type="text" name="title" required)
     label Content
-    textarea(name="content", cols="30", rows="10" value=review.content)
+    textarea(name="content", cols="30", rows="10" required)
     label Rating
-    select(name="rating" value=review.rating)
+    select(name="rating" required)
       option 1
       option 2
       option 3

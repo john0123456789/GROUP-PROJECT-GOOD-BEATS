@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'proxima_nova_rgregular';
+    src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot');
+    src: url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.woff') format('woff'),
+        url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.ttf') format('truetype'),
+        url('https://litmus.com/fonts/Emails/proximanova-regular-webfont.svg#proxima_nova_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
+
+:root {
+    --grey : rgba(180, 178, 174, 1);
+}
+
+body {
+    display: grid;
+    background-color: #edede3;
+    justify-content: center;
+
+}
+
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--grey);
+    font-style: normal;
+    font-weight: 400;
+    font-family: 'proxima_nova_rgregular', sans-serif;
+}
+
+#login-header {
+    font-size: 36px;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* BUTTON/INPUT STYLES */
+
+.form-control {
+    width: 350px;
+    height: 36px;
+    margin: 10px 0px;
+    border: 1px solid var(--grey);
+    border-radius: 25px;
+    padding: 6.4px 12.8px;
+}
+
+.form-control:hover {
+    background-color: rgb(241, 241, 241);
+    transition: background-color 500ms linear;
+}
+
+.form-control:active {
+    border: 1px solid var(--grey);
+}
+
+
+.loginButtons {
+    display: block;
+    width: 350px;
+    height: 38px;
+    border-radius: 25px;
+    background-color: black;
+    border: none;
+    color: white;
+    margin: 18px;
+    font-size: 16px;
+}
+
+.loginButtons:hover {
+    background-color: rgb(35, 35, 35);
+    transition: background-color 500ms linear;
+
+}
+
+button > a {
+    text-decoration: none;
+}
+button > a:visited {
+    color: black;
+}
+
+#sign-up {
+    height: 38px;
+    background-color: white;
+    border: 2px solid rgb(159, 159, 159);
+}
+
+#sign-up:hover {
+    background-color: rgb(241, 241, 241);
+    transition: background-color 500ms linear;
+}
+
+#demo {
+    margin-bottom: 30px;
+}
+
+/* NEW TO GOODBEATS STYLES */
+h4 {
+    text-align: center;
+}
+
+.divider {
+    width: 350px;
+    height: 12px;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+#break {
+    font-size: 16px;
+    background-color: white;
+    padding: 5px 10px 0px 10px;
+}
+
+/* ERROR STYLES */
+.alert {
+    color: red;
+}
+
+/* LOGO STYLES */
+.logo {
+    font-size: 2em;
+    font-family: Montserrat, sans-serif;
+    font-weight: 100;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    color: #553b08;
+}
+
+.logo>span {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    color: #553b08;
+}

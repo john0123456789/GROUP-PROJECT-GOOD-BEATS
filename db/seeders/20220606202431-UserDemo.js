@@ -10,7 +10,7 @@ module.exports = {
       */
     return queryInterface.bulkInsert('Users', [
       {
-        username: 'Demo',
+        username: 'Hannah Montana',
         emailAddress: 'demo@netscape.com',
         hashedPassword: 'password',
         createdAt: new Date(),

@@ -12,8 +12,9 @@ router.get('/', async(req, res) => {
 })
 
 router.get('/new', csrfProtection, requireAuth, async(req, res) => {
+  const albums = await db.Album.findAll();
   const reviews = await db.Review.findAll();
-  res.render('reviews', {csrfToken: req.csrfToken(), review: {}, reviews})
+  res.render('reviews', {csrfToken: req.csrfToken(), reviews, albums})
 })
 
 router.post('/', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
@@ -25,7 +26,7 @@ router.post('/', csrfProtection, requireAuth, asyncHandler(async(req, res, next)
     userId: req.session.auth.userId,
     albumId
   })
-  res.redirect(`/albums/${albumId}`)
+  return res.redirect(`/`)
 }))
 
 

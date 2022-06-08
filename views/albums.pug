@@ -1,0 +1,6 @@
+extends layout.pug
+
+block content
+  ul#album-list
+    each album in albums
+      li.album-titles: a(href=`/albums/${album.id}`)= album.title

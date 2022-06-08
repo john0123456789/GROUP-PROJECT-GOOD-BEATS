@@ -14,6 +14,8 @@ module.exports = {
      rating: 5,
      userId: 5,
      albumId: 25,
+     createdAt: new Date(),
+     updatedAt: new Date()
    },
    {
      title: "not that great, very disappointed",
@@ -21,6 +23,8 @@ module.exports = {
      rating: 1,
      userId: 4,
      albumId: 26,
+     createdAt: new Date(),
+     updatedAt: new Date()
    },
    {
      title: "In my feels",
@@ -28,6 +32,8 @@ module.exports = {
      rating: 5,
      userId: 3,
      albumId: 27,
+     createdAt: new Date(),
+     updatedAt: new Date()
    },
    {
      title: "GREATEST ALBUM OF ALL TIME",
@@ -35,6 +41,8 @@ module.exports = {
      rating: 5,
      userId: 7,
      albumId: 28,
+     createdAt: new Date(),
+     updatedAt: new Date()
    },
    {
      title: "JUSTIN BEIBER <3!!!!",
@@ -42,6 +50,8 @@ module.exports = {
      rating: 5,
      userID: 6,
      albumId: 29,
+     createdAt: new Date(),
+     updatedAt: new Date()
    },
    {
      title: "Boring",
@@ -49,6 +59,8 @@ module.exports = {
      rating: 2,
      userId: 9,
      albumId: 30,
+     createdAt: new Date(),
+     updatedAt: new Date()
    },
    {
      title: "Not that bad",
@@ -56,6 +68,8 @@ module.exports = {
      rating: 3,
      userId: 3,
      albumId: 31,
+     createdAt: new Date(),
+     updatedAt: new Date()
    },
    {
      title: "great album for the gym",

@@ -9,13 +9,12 @@ router.get('/', async(req, res) => {
   res.render('albums', {albums})
 })
 
-router.get('/:id(\\d+)', asyncHandler(async(err, req, res, next) => {
-  const album = await db.Album.findByPk(req.params.id, {
-    // include: db.Review
-  });
-  if(!album){
-    res.render('error')
-  }
+router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+  const album = await db.Album.findByPk(req.params.id);
+  // if(!album){
+  //   res.render('error')
+  // }
+  console.log(req.body)
   const trackList = album.trackLists.split(',')
   res.render('albumEach', { album, trackList })
 }))

@@ -1,18 +1,21 @@
 extends layout.pug
 
 block content
-  form(action="/reviews/new", method="post")
+  form(action="/reviews", method="post")
     input(type="hidden" name="_csrf" value=csrfToken)
     label Title
-    input(type="text" name="Title" value=data.title)
+    input(type="text" name="Title" value=review.title)
     label Content
-    textarea(name="content", cols="30", rows="10" value=data.content)
+    textarea(name="content", cols="30", rows="10" value=review.content)
     label Rating
-    select(name="rating" value=data.rating)
+    select(name="rating" value=review.rating)
       option 1
       option 2
       option 3
       option 4
       option 5
+    select(name="albumId" required)
+      each album in albums
+        option(value=album.id)= album.title
     button Submit Review
     button Cancel

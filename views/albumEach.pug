@@ -1,11 +1,14 @@
 extends layout.pug
 
+//-  a(href="review_section") Reviews
+
 block content
  ul TRACK LIST
    each track in trackList
     li= track
 
  ul REVIEWS
+  a(href="/reviews/new")
    each review in reviews
     li= review.title
       p= review.content

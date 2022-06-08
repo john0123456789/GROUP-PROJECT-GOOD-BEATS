@@ -1,0 +1,17 @@
+extends layout.pug
+
+block content
+  form(action="/reviews/new", method="post")
+    input(type="hidden" name="_csrf" value=csrfToken)
+    label Title
+    input(type="text" name="Title" value=data.title)
+    label Content
+    textarea(name="content", cols="30", rows="10" value=data.content)
+    select(name="rating")
+      option 1
+      option 2
+      option 3
+      option 4
+      option 5
+    button Submit Review
+    button Cancel

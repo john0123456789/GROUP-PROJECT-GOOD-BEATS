@@ -75,7 +75,10 @@ module.exports = {
      title: "great album for the gym",
      content: "Love blasting this album when i'm at the gym, definitely recommend it. Hit my PR to this album",
      rating: 4,
+     userId: 4,
      albumId: 32,
+     createdAt: new Date(),
+     updatedAt: new Date()
    },
    {
      title: "I HATE IT",
@@ -85,7 +88,8 @@ module.exports = {
      albumId: 9,
      createdAt: new Date(),
      updatedAt: new Date()
-   }, {
+   },
+   {
      title: "I lOVE IT",
      content: "so much that I hate it so much!!!",
      rating: 1,
@@ -93,7 +97,8 @@ module.exports = {
      albumId: 10,
      createdAt: new Date(),
      updatedAt: new Date()
-   }, {
+   },
+   {
      title: "Wow this artist is artistic",
      content: "i wish this artist would paint on me",
      rating: 5,
@@ -101,7 +106,8 @@ module.exports = {
      albumId: 11,
      createdAt: new Date(),
      updatedAt: new Date()
-   }, {
+   },
+   {
      title: "Dang, this album got me pregnant",
      content: "Gonna name him/her after this album",
      rating: 5,
@@ -109,7 +115,8 @@ module.exports = {
      albumId: 12,
      createdAt: new Date(),
      updatedAt: new Date()
-   }, {
+   },
+   {
      title: "My kid got amputated to this album",
      content: "Its going to scar him for life, so it sucks, but I used to like this so I'll give it 2 stars ",
      rating: 2,
@@ -117,7 +124,8 @@ module.exports = {
      albumId: 13,
      createdAt: new Date(),
      updatedAt: new Date()
-   }, {
+   },
+   {
      title: "If I could have 1 dollar for every time I listened to this album",
      content: "I would like a refund",
      rating: 1,
@@ -125,7 +133,8 @@ module.exports = {
      albumId: 14,
      createdAt: new Date(),
      updatedAt: new Date()
-   }, {
+   },
+   {
      title: "MID",
      content: "literally half of the albums are better, and half are worse... mid as heck",
      rating: 3,
@@ -133,7 +142,8 @@ module.exports = {
      albumId: 15,
      createdAt: new Date(),
      updatedAt: new Date()
-   }, {
+   },
+   {
      title: "I wish I could unhear it",
      content: "so that i could listen to it again for the first time",
      rating: 5,

@@ -16,18 +16,13 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
   // }
   console.log(req.body)
   const trackList = album.trackLists.split(',')
-  res.render('albumEach', { album, trackList })
+  const reviews = await db.Review.findAll({
+    where: {
+      albumId: req.params.id
+    }})
+  res.render('albumEach', { album, trackList, reviews })
 }))
 
-router.get('/:id(\\d+)', async(req, res) => {
-  const reviews = await db.Review.findAll({
-    include: Album
-  })
-  console.log(reviews)
-  //get reviews include albumId
-  //if albumId = :id
-    //res.render review
-})
 
 
 module.exports = router;

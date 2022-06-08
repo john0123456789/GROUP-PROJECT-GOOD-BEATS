@@ -5,10 +5,8 @@ block content
    each track in trackList
     li= track
 
-    table
-      thead
-        tr
-          th Title
-          th Content
-          th rating
-      tbody
+ ul REVIEWS
+   each review in reviews
+    li= review.title
+      p= review.content
+      p= `${review.rating}/5`

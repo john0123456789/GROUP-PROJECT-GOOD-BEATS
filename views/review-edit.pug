@@ -1,0 +1,17 @@
+
+block content
+  form(action=`/reviews/${reviewId}`, method="post" id=`edit-form-${review.id}`)
+    input(type="hidden" name="_csrf" value=csrfToken)
+    label Title
+    input(type="text" name="title" id=`${review.id}-edit-title` required)
+    label Content
+    textarea(name="content", cols="30", rows="10" id=`${review.id}-edit-title` required)
+    label Rating
+    select(name="rating" id=`${review.id}-edit-rating` required)
+      option 1
+      option 2
+      option 3
+      option 4
+      option 5
+    button(id=`edit-submit-${review.id}`) Submit Edit
+    button Cancel

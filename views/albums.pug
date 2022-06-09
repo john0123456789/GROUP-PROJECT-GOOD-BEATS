@@ -1,6 +1,8 @@
-extends layout.pug
-
-block content
-  ul#album-list
+html
+  head
+   link(rel="stylesheet" href="../stylesheets/albums_page.css")
+  body
+   ul#album-list
     each album in albums
+      li.album-artists= album.artist
       li.album-titles: a(href=`/albums/${album.id}`)= album.title

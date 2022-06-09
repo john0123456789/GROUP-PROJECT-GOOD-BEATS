@@ -1,8 +1,14 @@
 html 
     header 
         title= `${library.name}`
+        script(src="/javascripts/deleteAlbum.js" type="module")
     body
          h1= `${library.User.username}'s ${library.name} Library`
+         input(type='hidden' value= library.id id='libraryId') 
+         if (allAlbums.length<1)
+            h2 NO ALBUMS IN THIS LIBRARY
          ul         
             each album in allAlbums 
                 li.album-titles: a(href=`/albums/${album.id}`)= album.title 
+                
+                button(class='deleteButton' value= album.id) Delete

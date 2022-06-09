@@ -6,7 +6,7 @@ const logger = require('morgan');
 const { sequelize } = require('./db/models');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const {sessionSecret} = require('./config');
+const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth');
 
 const indexRouter = require('./routes/index');
@@ -14,7 +14,7 @@ const usersRouter = require('./routes/users');
 const albumsRouter = require('./routes/albums');
 const reviewsRouter = require('./routes/reviews');
 const librariesRouter = require('./routes/libraries');
-
+const albumLibrariesRouter = require('./routes/albumlibrary')
 
 const app = express();
 
@@ -49,6 +49,7 @@ app.use('/users', usersRouter);
 app.use('/albums', albumsRouter);
 app.use('/reviews', reviewsRouter);
 app.use('/libraries', librariesRouter);
+app.use('/albumlibraries', albumLibrariesRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

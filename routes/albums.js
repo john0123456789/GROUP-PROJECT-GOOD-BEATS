@@ -47,6 +47,22 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
   return res.redirect(`/albums/${req.params.id}`)
 }))
 
+// router.get('/:id(\\d+)/reviews/edit/', csrfProtection, requireAuth, async(req, res) => {
+//   const album = await db.Album.findByPk(req.params.id);
+//   const reviews = await db.Review.findByPk(req.params.id);
+//   res.render('review-edit', {csrfToken: req.csrfToken(), reviews, album})
+// })
+
+// router.put('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
+//   const { id, title, content, rating, userId, albumId } = req.body;
+//   const review = await db.Review.update({
+//     where: {id}
+//  })
+
+// router.delete(`/reviews/:id(\\d+)`), csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
+//   const review = await.db
+// })
+
 
 
 module.exports = router;

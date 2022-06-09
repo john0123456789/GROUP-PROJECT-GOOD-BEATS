@@ -2,6 +2,7 @@ html
   head
    link(rel="stylesheet" href="../stylesheets/albums_page.css")
   body
+    h1= album.title
     ol#tracklist TRACK LIST
       each track in trackList
         li= track

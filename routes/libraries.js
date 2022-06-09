@@ -44,14 +44,20 @@ router.post('/new', csrfProtection, asyncHandler(async (req, res) => {
     res.redirect(`/albums/${albumId}`)
     console.log("hello")
 }))
+
 router.post(`/:id(\\d+)`, asyncHandler(async (req, res) => {
     const { libraryId, albumId } = req.body
-    await db.AlbumLibrary.create({
-        libraryId,
-        albumId
-    })
-    res.redirect('/albums')
-}))
+    const exists = await db.AlbumLibrary.findOne({ where: { libraryId, albumId } })
+    // console.log(exists)
+    if (!exists) {
+        await db.AlbumLibrary.create({
+            libraryId,
+            albumId
+        })
+        res.redirect('/albums')
+    }
+}
+))
 
 
 

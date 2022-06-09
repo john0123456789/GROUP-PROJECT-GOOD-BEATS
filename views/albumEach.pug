@@ -7,7 +7,7 @@ html
         li= track
 
     .reviews-container REVIEWS
-      a(href="/reviews/new") Write a Review
+      a(href=`/albums/${album.id}/reviews/new`) Write a Review
       each review in reviews
         div(id=`review_${review.id}`)
         div(id=`review_header_${review.id}`)= review.title

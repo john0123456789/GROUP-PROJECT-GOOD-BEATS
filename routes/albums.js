@@ -9,10 +9,9 @@ router.get('/', async(req, res) => {
   res.render('albums', {albums})
 })
 
-router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+router.get('/:id(\\d+)',csrfProtection, asyncHandler(async(req, res) => {
   const album = await db.Album.findByPk(req.params.id);
   const libraries = await db.AlbumLibrary.findAll({where: {libraryId: req.params.id}})
-  const user = req.session.auth;
   // if(!album){
   //   res.render('error')
   // }
@@ -22,7 +21,7 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
     where: {
       albumId: req.params.id
     }})
-  res.render('albumEach', { album, trackList, reviews, libraries, user })
+  res.render('albumEach', { album, trackList, reviews, libraries, csrfToken: req.csrfToken()})
 }))
 
 

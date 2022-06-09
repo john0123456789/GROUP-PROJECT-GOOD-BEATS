@@ -1,7 +1,6 @@
 extends layout.pug
 
 block content
- p.hidden= `Welcome ${user.userId}`
  script(type="module" src="/javascripts/createLibrary.js")
  link(rel='stylesheet' href='/stylesheets/index.css')
  ul TRACK LIST
@@ -19,5 +18,13 @@ block content
     each library in libraries 
       option= library.name
  #input-container
-  button.create-library Add Library
+  button(id="create-library") Add Library
+  form(action="/libraries/new" method="post" class="hidden" id="library-form")
+    input(type='text' class="hidden" value=album.id name="albumId")
+    input(type="hidden" name="_csrf" value=csrfToken)
+    label Library name 
+    input(type="text" name="name")
+    button(id="add") Add 
+    button(id="cancel") Cancel
+
 

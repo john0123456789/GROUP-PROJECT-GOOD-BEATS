@@ -11,11 +11,8 @@ router.get('/', async(req, res) => {
 
 router.get('/:id(\\d+)',csrfProtection, asyncHandler(async(req, res) => {
   const album = await db.Album.findByPk(req.params.id);
-  const libraries = await db.AlbumLibrary.findAll({where: {libraryId: req.params.id}})
-  // if(!album){
-  //   res.render('error')
-  // }
-  console.log(req.body)
+  const {userId} = req.session.auth
+  const libraries = await db.Library.findAll({where: {userId}})
   const trackList = album.trackLists.split(',')
   const reviews = await db.Review.findAll({
     where: {

@@ -1,4 +1,11 @@
-extends layout.pug
+html
+  head
+   link(rel="stylesheet" href="../stylesheets/albums_page.css")
+  body
+    ol#tracklist TRACK LIST
+      each track in trackList
+        li= track
+
 
 block content
  script(type="module" src="/javascripts/createLibrary.js")
@@ -7,11 +14,6 @@ block content
    each track in trackList
     li= track
 
- ul REVIEWS
-   each review in reviews
-    li= review.title
-      p= review.content
-      p= `${review.rating}/5`
  div.add-library-container
   label 
   select
@@ -27,4 +29,12 @@ block content
     button(id="add") Add 
     button(id="cancel") Cancel
 
+
+    .reviews-container REVIEWS
+      a(href=`/albums/${album.id}/reviews/new`) Write a Review
+      each review in reviews
+        div(id=`review_${review.id}`)
+        div(id=`review_header_${review.id}`)= review.title
+          span= `${review.rating}/5`
+        div(id=`review_content_${review.id}`)= review.content
 

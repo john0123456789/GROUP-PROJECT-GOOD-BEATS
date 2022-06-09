@@ -1,14 +1,14 @@
 extends layout.pug
 
 block content
-  form(action="/reviews/new", method="post")
+  form(action=`/albums/${album.id}`, method="post")
     input(type="hidden" name="_csrf" value=csrfToken)
     label Title
-    input(type="text" name="Title" value=data.title)
+    input(type="text" name="title" required)
     label Content
-    textarea(name="content", cols="30", rows="10" value=data.content)
+    textarea(name="content", cols="30", rows="10" required)
     label Rating
-    select(name="rating" value=data.rating)
+    select(name="rating" required)
       option 1
       option 2
       option 3

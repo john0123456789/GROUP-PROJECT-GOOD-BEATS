@@ -1,0 +1,18 @@
+body{
+  background-color: #edede3;
+}
+
+.reviews-container{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#tracklist{
+  margin: 20px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.album-artists{
+  font-size: larger;
+  font-weight: bolder;
+}

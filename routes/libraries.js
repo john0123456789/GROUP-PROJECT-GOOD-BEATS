@@ -12,7 +12,7 @@ router.get('/:id(\\d+)', async (req, res) => {
     });
 
     const albums = await db.AlbumLibrary.findAll({ where: { libraryId: req.params.id } })
-
+    // res.send(albums)
     const albumIds = albums.map(album => album.albumId);
 
     const allAlbums = await db.Album.findAll({
@@ -21,12 +21,11 @@ router.get('/:id(\\d+)', async (req, res) => {
         }
     });
 
-
-
     // res.send(allAlbums);
-    res.render('library', { library, allAlbums })
+    res.render('library', { library, allAlbums, albums })
 
 })
+
 router.get('/', async (req, res) => {
     const libraries = await db.Library.findAll()
 

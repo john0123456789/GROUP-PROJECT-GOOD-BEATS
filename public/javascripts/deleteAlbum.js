@@ -5,13 +5,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
         const button = deleteButtons[i]
         button.addEventListener('click', async (e) => {
             const albumId = e.target.value
-
-            // await fetch(`/albumlibraries/${libraryId}/${albumId}`, {
-            //     method: "DELETE",
-            // })
-
-
-
+            e.preventDefault()
+            return await fetch(`/albumlibraries/${libraryId}/${albumId}`, {
+                method: "DELETE",
+            })
         })
     }
 

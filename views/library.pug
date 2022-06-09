@@ -10,6 +10,5 @@ html
          ul         
             each album in allAlbums 
                 li.album-titles: a(href=`/albums/${album.id}`)= album.title 
-                input(type='hidden' value= album.id id=`albumId-${album.id}`) 
-
+                
                 button(class='deleteButton' value= album.id) Delete

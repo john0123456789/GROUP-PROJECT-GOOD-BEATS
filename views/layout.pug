@@ -9,7 +9,7 @@ html
         span(class='navbar-text px-4') Welcome #{user.username}!
         form(class='form-inline pr-4' action='/users/logout' method='post')
           button(class='btn btn-sm btn-warning' type='submit') Logout
-        
+
       else
         span(class='navbar-text px-4')
           a(class='btn btn-sm btn-dark mr-2' href='/users/login') Login
@@ -17,8 +17,8 @@ html
       block content
 
 
-      label Libraries
-      if (libraries.length>0)
-        ul 
-          each library in libraries 
-            li: a(href=`/libraries/${library.id}`)= library.name
+        label Libraries
+        if (libraries.length>0)
+          ul
+            each library in libraries
+              li: a(href=`/libraries/${library.id}`)= library.name

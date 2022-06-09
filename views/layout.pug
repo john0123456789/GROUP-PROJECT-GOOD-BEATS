@@ -4,11 +4,16 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/index.css')
   body
       if locals.authenticated
         span(class='navbar-text px-4') Welcome #{user.username}!
         form(class='form-inline pr-4' action='/users/logout' method='post')
           button(class='btn btn-sm btn-warning' type='submit') Logout
+        .navbar
+          a(href='/') Home
+          a(href='/albums') Albums
+          a(href='/libraries') My Libraries
         
       else
         span(class='navbar-text px-4')
@@ -16,9 +21,8 @@ html
           a(class='btn btn-sm btn-dark' href='/users/register') Register
       block content
 
-
-      label Libraries
-      if (libraries.length>0)
-        ul 
-          each library in libraries 
-            li: a(href=`/libraries/${library.id}`)= library.name
+        label Libraries
+        if (libraries.length>0)
+          ul 
+            each library in libraries 
+              li: a(href=`/libraries/${library.id}`)= library.name

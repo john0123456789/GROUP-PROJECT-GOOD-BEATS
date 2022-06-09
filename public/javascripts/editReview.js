@@ -17,7 +17,6 @@ for (let i = 0; i < editBtn.length; i++) {
           const content = document.getElementById(`${reviewId}-edit-content`).value
           const rating = document.getElementById(`${reviewId}-edit-rating`).value
 
-          console.log(title, content)
 
           const res = await fetch(`/reviews/${reviewId}`, {
               method: 'PUT',

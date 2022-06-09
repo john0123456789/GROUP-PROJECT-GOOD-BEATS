@@ -1,14 +1,22 @@
-html 
-    header 
-        title= `${library.name}`
-        script(src="/javascripts/deleteAlbum.js" type="module")
-    body
-         h1= `${library.User.username}'s ${library.name} Library`
-         input(type='hidden' value= library.id id='libraryId') 
-         if (allAlbums.length<1)
-            h2 NO ALBUMS IN THIS LIBRARY
-         ul         
-            each album in allAlbums 
-                li.album-titles: a(href=`/albums/${album.id}`)= album.title 
-                
-                button(class='deleteButton' value= album.id) Delete
+extends layout.pug
+
+block content
+    title= `${library.name}`
+    script(src="/javascripts/deleteAlbum.js" type="module")
+    script(src="/javascripts/editLibrary.js" type="module")
+    h1= `${library.User.username}'s ${library.name} Library`
+    button(id='edit' value=library.id) Edit
+    form(action=`/libraries/${library.id}` method="post" class="hidden" id="edit-library-form")
+        label New library name: 
+        input(type="text" id="new-name" value=library.name) 
+        button(id='save' value=library.id) Save 
+        button(id='cancel') Cancel
+
+    input(type='hidden' value= library.id id='libraryId') 
+    if (allAlbums.length<1)
+        h2 NO ALBUMS IN THIS LIBRARY
+    ul         
+        each album in allAlbums 
+            li(id=`album-titles-${album.id}`): a(href=`/albums/${album.id}`)= album.title 
+            
+            button(class='deleteButton' value= album.id) Delete

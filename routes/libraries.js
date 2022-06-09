@@ -27,7 +27,8 @@ router.get('/:id(\\d+)', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    const libraries = await db.Library.findAll()
+    const {userId} = req.session.auth
+    const libraries = await db.Library.findAll({where: {userId}})
 
     res.render('libraries', { libraries })
 })
@@ -41,13 +42,13 @@ router.post('/new', csrfProtection, asyncHandler(async (req, res) => {
         userId
     })
     res.redirect(`/albums/${albumId}`)
-    console.log("hello")
+
 }))
 
 router.post(`/:id(\\d+)`, asyncHandler(async (req, res) => {
     const { libraryId, albumId } = req.body
     const exists = await db.AlbumLibrary.findOne({ where: { libraryId, albumId } })
-    // console.log(exists)
+
     if (!exists) {
         await db.AlbumLibrary.create({
             libraryId,
@@ -57,6 +58,16 @@ router.post(`/:id(\\d+)`, asyncHandler(async (req, res) => {
     }
 }
 ))
+
+router.put(`/:id(\\d+)`, async(req, res) => {
+    const libraryId = req.params.id;
+    // const library = db.Library.findByPk(libraryId);
+
+    // library.name = req.body.name;
+    // await library.save()
+    console.log('successful')
+    
+})
 
 
 

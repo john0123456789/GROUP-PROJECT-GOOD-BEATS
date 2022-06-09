@@ -21,7 +21,6 @@ router.get('/:id(\\d+)', csrfProtection, requireAuth, async(req, res) => {
     }))
 
   router.put('/:id(\\d+)', async(req, res) => {
-      console.log(req.body)
       const review = await Review.findByPk(req.params.id)
       review.title = req.body.title
       review.content = req.body.content

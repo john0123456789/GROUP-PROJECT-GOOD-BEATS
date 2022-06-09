@@ -1,16 +1,15 @@
-extends layout.pug
+html
+  head
+   link(rel="stylesheet" href="../stylesheets/albums_page.css")
+  body
+    ol#tracklist TRACK LIST
+      each track in trackList
+        li= track
 
-//-  a(href="review_section") Reviews
-
-block content
- ul TRACK LIST
-   each track in trackList
-    li= track
-
- .reviews-container REVIEWS
-  a(href="/reviews/new") Write a Review
-  each review in reviews
-   div(id=`review_${review.id}`)
-    div(id=`review_header_${review.id}`)= review.title
-      span= `${review.rating}/5`
-    div(id=`review_content_${review.id}`)= review.content
+    .reviews-container REVIEWS
+      a(href="/reviews/new") Write a Review
+      each review in reviews
+        div(id=`review_${review.id}`)
+        div(id=`review_header_${review.id}`)= review.title
+          span= `${review.rating}/5`
+        div(id=`review_content_${review.id}`)= review.content

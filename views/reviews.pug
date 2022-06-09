@@ -1,7 +1,7 @@
 extends layout.pug
 
 block content
-  form(action="/reviews", method="post")
+  form(action=`/albums/${album.id}`, method="post")
     input(type="hidden" name="_csrf" value=csrfToken)
     label Title
     input(type="text" name="title" required)
@@ -14,8 +14,5 @@ block content
       option 3
       option 4
       option 5
-    select(name="albumId" required)
-      each album in albums
-        option(value=album.id)= album.title
     button Submit Review
     button Cancel

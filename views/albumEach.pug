@@ -9,17 +9,22 @@ html
 
 block content
  script(type="module" src="/javascripts/createLibrary.js")
+ script(type="module" src="/javascripts/addAlbumsToLibrary.js")
+
  link(rel='stylesheet' href='/stylesheets/index.css')
 
  div.add-library-container
   label
-  select
+  select(id='libraryName')
     each library in libraries
-      option= library.name
+      option(value=library.id)= library.name
+  button(id="addAlbum") Add Album
+
+
  #input-container
-  button(id="create-library") Add Library
+  button(id="create-library") Create New Library
   form(action="/libraries/new" method="post" class="hidden" id="library-form")
-    input(type='text' class="hidden" value=album.id name="albumId")
+    input(id='albumId' type='text' class="hidden" value=album.id name="albumId")
     input(type="hidden" name="_csrf" value=csrfToken)
     label Library name
     input(type="text" name="name")

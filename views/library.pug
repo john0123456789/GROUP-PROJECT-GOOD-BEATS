@@ -3,6 +3,8 @@ html
         title= `${library.name}`
     body
          h1= `${library.User.username}'s ${library.name} Library`
+         if (allAlbums.length<1)
+            h2 NO ALBUMS IN THIS LIBRARY
          ul         
             each album in allAlbums 
                 li.album-titles: a(href=`/albums/${album.id}`)= album.title 

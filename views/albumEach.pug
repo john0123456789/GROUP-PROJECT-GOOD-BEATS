@@ -7,9 +7,10 @@ block content
    each track in trackList
     li= track
 
- ul REVIEWS
+ .reviews-container REVIEWS
   a(href="/reviews/new") Write a Review
-   each review in reviews
-    li= review.title
-      p= review.content
-      p= `${review.rating}/5`
+  each review in reviews
+   div(id=`review_${review.id}`)
+    div(id=`review_header_${review.id}`)= review.title
+      span= `${review.rating}/5`
+    div(id=`review_content_${review.id}`)= review.content

@@ -10,16 +10,19 @@ router.get('/', async(req, res) => {
 })
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+  const users = await db.User.findAll();
   const album = await db.Album.findByPk(req.params.id);
   // if(!album){
   //   res.render('error')
   // }
   console.log(req.body)
   const trackList = album.trackLists.split(',')
+  console.log('reqParams: ', req.params)
   const reviews = await db.Review.findAll({
     where: {
-      albumId: req.params.id
-    }})
+      albumId: req.params.id,
+    }
+  })
   res.render('albumEach', { album, trackList, reviews })
 }))
 

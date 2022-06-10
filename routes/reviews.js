@@ -14,15 +14,15 @@ const {requireAuth} = require('../auth.js');
     }))
 
 
-  router.put('/:id(\\d+)', async(req, res) => {
-      const review = await Review.findByPk(req.params.id)
-      review.title = req.body.title
-      review.content = req.body.content
-      review.rating = req.body.rating
-      await review.save()
+  // router.put('/:id(\\d+)', async(req, res) => {
+  //     const review = await Review.findByPk(req.params.id)
+  //     review.title = req.body.title
+  //     review.content = req.body.content
+  //     review.rating = req.body.rating
+  //     await review.save()
 
-      res.json({message: 'Success!', post})
-    })
+  //     res.json({message: 'Success!', post})
+  //   })
 
 
 

@@ -25,7 +25,7 @@ router.get('/', requireAuth, async (req, res) => {
 })
 
 
-router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
 
   const users = await db.User.findAll();
 

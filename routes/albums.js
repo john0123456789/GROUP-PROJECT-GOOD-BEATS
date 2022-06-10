@@ -19,7 +19,7 @@ const reviewValidators = [
 ];
 
 
-router.get('/', async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
   const albums = await db.Album.findAll();
   res.render('albums', { albums })
 })

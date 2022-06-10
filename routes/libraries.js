@@ -4,9 +4,10 @@ const app = require('../app');
 const db = require('../db/models');
 const router = express.Router();
 const { csrfProtection, asyncHandler } = require('./utils');
+const { requireAuth } = require('../auth');
 
 
-router.get('/:id(\\d+)', async (req, res) => {
+router.get('/:id(\\d+)', requireAuth, async (req, res) => {
     const library = await db.Library.findByPk(req.params.id, {
         include: db.User
     });
@@ -26,7 +27,7 @@ router.get('/:id(\\d+)', async (req, res) => {
 
 })
 
-router.get('/', async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
     const { userId } = req.session.auth
     const libraries = await db.Library.findAll({ where: { userId } })
 
@@ -45,7 +46,7 @@ router.post('/new', csrfProtection, asyncHandler(async (req, res) => {
 
 }))
 
-router.post(`/:id(\\d+)`, asyncHandler(async (req, res) => {
+router.post(`/:id(\\d+)`, requireAuth, asyncHandler(async (req, res) => {
     const { libraryId, albumId } = req.body
     const exists = await db.AlbumLibrary.findOne({ where: { libraryId, albumId } })
 
@@ -59,7 +60,7 @@ router.post(`/:id(\\d+)`, asyncHandler(async (req, res) => {
 }
 ))
 
-router.put('/:id(\\d+)', async (req, res) => {
+router.put('/:id(\\d+)', requireAuth, async (req, res) => {
     const libraryId = req.params.id;
     const library = await db.Library.findByPk(libraryId);
     const { userId } = req.session.auth
@@ -73,7 +74,7 @@ router.put('/:id(\\d+)', async (req, res) => {
 })
 
 
-router.delete('/:id(\\d+)', async (req, res) => {
+router.delete('/:id(\\d+)', requireAuth, async (req, res) => {
     // console.log('you have arrived at the delete route handler')
     const library = await db.Library.findByPk(req.params.id)
     const allAlbums = await db.AlbumLibrary.findAll({ where: { libraryId: req.params.id } })

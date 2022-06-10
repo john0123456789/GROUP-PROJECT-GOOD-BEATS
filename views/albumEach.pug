@@ -7,28 +7,31 @@ block content
   link(rel="stylesheet" href="../stylesheets/albums_page.css")
   link(rel='stylesheet' href='/stylesheets/index.css')
   body
-    h1= album.title
-    ol#tracklist TRACK LIST
-      each track in trackList
-        li= track
+    .img-library-container
+      img(id='albumEachImg' src=`../albumImgs/${album.id}.jpg`)
+      div.add-library-container
+        label
+        select(id='libraryName')
+          each library in libraries
+            option(value=library.id)= library.name
+        button(id="addAlbum") Add Album
+        #input-container
+          button(id="create-library") Create New Library
+          form(action="/libraries/new" method="post" class="hidden" id="library-form")
+            input(id='albumId' type='text' class="hidden" value=album.id name="albumId")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            label Library name
+            input(type="text" name="name")
+            button(id="add") Add
+            button(id="cancel") Cancel
+    .album-info-container
+      h1= album.title
+      ol#tracklist TRACK LIST
+        each track in trackList
+          li= track
 
-  div.add-library-container
-    label
-    select(id='libraryName')
-      each library in libraries
-        option(value=library.id)= library.name
-    button(id="addAlbum") Add Album
 
 
-  #input-container
-    button(id="create-library") Create New Library
-    form(action="/libraries/new" method="post" class="hidden" id="library-form")
-      input(id='albumId' type='text' class="hidden" value=album.id name="albumId")
-      input(type="hidden" name="_csrf" value=csrfToken)
-      label Library name
-      input(type="text" name="name")
-      button(id="add") Add
-      button(id="cancel") Cancel
 
 
   .reviews-container REVIEWS
@@ -41,6 +44,3 @@ block content
             div(id=`review_content_${review.id}`)= review.content
             a(href=`/albums/${album.id}/reviews/${review.id}` class=`edit-btn` id=`edit-btn-${review.id}`) Edit
             button(class=`delete-btn` id=`delete-btn-${review.id}`) Delete
-            
-
-     

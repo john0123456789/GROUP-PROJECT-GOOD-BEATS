@@ -1,5 +1,5 @@
 body{
-  background-color: #edede3;
+  background-color: #f7f5f5;
 }
 
 .reviews-container{
@@ -20,4 +20,18 @@ body{
 img{
   width: 150px;
   height: 150px;
+}
+
+#albumEachImg{
+  height: 250px;
+  width: 250px;
+}
+
+.add-library-container{
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.album-info-container{
+  display: inline-flex;
 }

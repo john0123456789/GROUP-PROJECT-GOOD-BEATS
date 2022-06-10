@@ -27,7 +27,8 @@ router.get('/:id(\\d+)', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    const libraries = await db.Library.findAll()
+    const { userId } = req.session.auth
+    const libraries = await db.Library.findAll({ where: { userId } })
 
     res.render('libraries', { libraries })
 })
@@ -41,13 +42,13 @@ router.post('/new', csrfProtection, asyncHandler(async (req, res) => {
         userId
     })
     res.redirect(`/albums/${albumId}`)
-    console.log("hello")
+
 }))
 
 router.post(`/:id(\\d+)`, asyncHandler(async (req, res) => {
     const { libraryId, albumId } = req.body
     const exists = await db.AlbumLibrary.findOne({ where: { libraryId, albumId } })
-    // console.log(exists)
+
     if (!exists) {
         await db.AlbumLibrary.create({
             libraryId,
@@ -57,6 +58,32 @@ router.post(`/:id(\\d+)`, asyncHandler(async (req, res) => {
     }
 }
 ))
+
+router.put('/:id(\\d+)', async (req, res) => {
+    const libraryId = req.params.id;
+    const library = await db.Library.findByPk(libraryId);
+    const { userId } = req.session.auth
+    console.log(library)
+    library.name = req.body.name;
+    library.userId = userId
+    console.log(library)
+    await library.save()
+    console.log('successful')
+    res.json({ message: 'Success!', library })
+})
+
+
+router.delete('/:id(\\d+)', async (req, res) => {
+    // console.log('you have arrived at the delete route handler')
+    const library = await db.Library.findByPk(req.params.id)
+    const allAlbums = await db.AlbumLibrary.findAll({ where: { libraryId: req.params.id } })
+    for (let i = 0; i < allAlbums.length; i++) {
+        const album = allAlbums[i]
+        album.destroy()
+    }
+    await library.destroy()
+    return res.render('/')
+})
 
 
 

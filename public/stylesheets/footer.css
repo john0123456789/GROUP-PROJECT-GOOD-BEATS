@@ -1,0 +1,31 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 5px;
+    padding-bottom: 55px;
+    position: relative;
+}
+
+
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    background-color: #f8f4ec;
+    box-shadow: 0 0 5px var(--grey);
+}
+
+#footer-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.toe {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+}

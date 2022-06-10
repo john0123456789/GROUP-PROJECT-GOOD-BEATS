@@ -1,6 +1,22 @@
 extends layout.pug
 
 block content
-    ul 
-        each library in libraries 
-            li: a(href=`/libraries/${library.id}`)= library.name
+    link(rel='stylesheet' href='/stylesheets/index.css')
+    script(type="module" src="/javascripts/createLibrary.js")
+
+    h1 My Libraries
+    if (libraries.length)
+        ul 
+            each library in libraries 
+                li: a(href=`/libraries/${library.id}`)= library.name
+    else 
+        h2 YOU DO NOT HAVE ANY LIBRARIES, OR FRIENDS 
+    #input-container
+    button(id="create-library") Create New Library
+    form(action="/libraries/new" method="post" class="hidden" id="library-form")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      label Library name
+      input(type="text" name="name")
+      button(id="add") Add
+      button(id="cancel") Cancel
+    include footer.pug

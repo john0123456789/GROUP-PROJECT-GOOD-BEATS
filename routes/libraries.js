@@ -26,11 +26,12 @@ router.get('/:id(\\d+)', async (req, res) => {
 
 })
 
-router.get('/', async (req, res) => {
+router.get('/', csrfProtection, async (req, res) => {
     const { userId } = req.session.auth
     const libraries = await db.Library.findAll({ where: { userId } })
 
-    res.render('libraries', { libraries })
+
+    res.render('libraries', { libraries, csrfToken: req.csrfToken() })
 })
 
 router.post('/new', csrfProtection, asyncHandler(async (req, res) => {
@@ -41,7 +42,11 @@ router.post('/new', csrfProtection, asyncHandler(async (req, res) => {
         name,
         userId
     })
-    res.redirect(`/albums/${albumId}`)
+    if (albumId) {
+        res.redirect(`/albums/${albumId}`)
+    } else {
+        res.redirect('/libraries')
+    }
 
 }))
 

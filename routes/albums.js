@@ -18,6 +18,7 @@ const reviewValidators = [
     .withMessage('Please provide a value for Rating'),
 ];
 
+
 router.get('/', async (req, res) => {
   const albums = await db.Album.findAll();
   res.render('albums', { albums })
@@ -63,35 +64,16 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
 router.get('/:id(\\d+)/reviews/:reviewId(\\d+)', csrfProtection, requireAuth, async(req, res) => {
   const album = await db.Album.findByPk(req.params.id);
   const reviewEdit = await db.Review.findByPk(req.params.reviewId);
+  const { reviewId } = req.params
   console.log(reviewEdit.rating)
   res.render('review-edit', {
     title: 'Edit Review',
     reviewEdit,
+    reviewId,
     album,
     csrfToken: req.csrfToken(),
   })
 })
-
-// dynamic ??
-// router.put('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async(req, res, next) => {
-//   const review = await db.Review.findByPk(req.params.id)
-//   const { userId } = req.session.auth
-//   review.title = req.body.title
-//   review.content = req.body.content
-//   review.rating = req.body.rating
-//   await review.save()
-
-//   res.json({ message: 'Success!', review })
-//  }))
-
-// router.get('/:id(\\d+)/review/:reviewId(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
-//   const reviewEdit = await db.Review.findByPk(req.params.id)
-//   res.render('review-edit', {
-//     title: 'Edit Review',
-//     reviewEdit,
-//     csrfToken: req.csrfToken(),
-//   })
-// }))
 
 router.post('/:id(\\d+)/reviews/:reviewId(\\d+)', csrfProtection, requireAuth, reviewValidators, asyncHandler(async (req, res) => {
   const reviewEdit = await db.Review.findByPk(req.params.reviewId)
@@ -101,8 +83,9 @@ router.post('/:id(\\d+)/reviews/:reviewId(\\d+)', csrfProtection, requireAuth, r
   const validatorErrors = validationResult(req);
 
   if (validatorErrors.isEmpty()) {
-    await reviewEdit.save({ title, content, rating });
-    res.redirect(`/albums/${reviewEdit.id}`)
+    await reviewEdit.update({ title, content, rating });
+    console.log(reviewEdit)
+    res.redirect(`/albums/${req.params.id}`)
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);
     res.render("review-edit", {

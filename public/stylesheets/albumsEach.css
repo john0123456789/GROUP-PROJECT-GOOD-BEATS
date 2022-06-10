@@ -1,0 +1,36 @@
+body{
+  background-color: #f7f5f5;
+}
+
+.reviews-container{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#tracklist{
+  margin: 20px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.album-artists{
+  font-size: larger;
+  font-weight: bolder;
+}
+
+#albumEachImg{
+  height: 250px;
+  width: 250px;
+}
+
+.add-library-container{
+  display: block;
+  position: relative;
+}
+
+.album-info-container{
+  display: inline-flex;
+}
+
+img:hover{
+  filter: drop-shadow(none);
+}

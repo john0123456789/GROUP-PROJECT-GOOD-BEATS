@@ -1,20 +1,12 @@
 body{
+  margin: auto;
   background-color: #f7f5f5;
 }
 
-.reviews-container{
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-#tracklist{
-  margin: 20px;
-  padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.album-artists{
-  font-size: larger;
-  font-weight: bolder;
+#album_page_img:hover{
+  width:152px;
+  height: 152px;
+  filter: drop-shadow(0 0 0.75rem #553b08);
 }
 
 img{
@@ -22,16 +14,36 @@ img{
   height: 150px;
 }
 
-#albumEachImg{
-  height: 250px;
-  width: 250px;
+.albums-header{
+  text-align: center;
+  width:50%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
-.add-library-container{
-  display: inline-flex;
+h2{
+  margin-top: 150px;
+  margin-bottom: 20px;
+}
+
+h1{
+  margin-top: 50px;
+}
+
+.album-page-container{
+    display: inline-flex;
+    width:50%;
+    flex-wrap: wrap;
+    margin-left: 25%;
+    margin-right: 25%;
+    justify-content: space-evenly;
+}
+
+.album-page-card{
+  display: flex;
+  justify-content: flex-start;
   flex-direction: column;
-}
+  width: fit-content;
+  margin: 5px;
 
-.album-info-container{
-  display: inline-flex;
 }

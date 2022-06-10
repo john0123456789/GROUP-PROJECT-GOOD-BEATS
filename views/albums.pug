@@ -7,12 +7,12 @@ block content
    .albums-header
     h1 Albums
     h2 Checkout one of these awesome albums!
-   .album-container
+   .album-page-container
      each album in albums
-      .album-card
+      .album-page-card
         p= album.title
         a(href=`/albums/${album.id}`)
-          img(src=`../albumImgs/${album.id}.jpg`)
+          img(id='album_page_img' src=`../albumImgs/${album.id}.jpg`)
         p= album.artist
 
   include footer.pug

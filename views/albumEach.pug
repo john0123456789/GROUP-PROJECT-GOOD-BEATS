@@ -4,8 +4,7 @@ extends layout.pug
 block content
   script(type="module" src="/javascripts/addAlbumsToLibrary.js")
   script(type="module" src="/javascripts/createLibrary.js")
-  link(rel="stylesheet" href="../stylesheets/albums_page.css")
-  link(rel='stylesheet' href='/stylesheets/index.css')
+  link(rel='stylesheet' href='../stylesheets/albumsEach.css')
   body
     .img-library-container
       img(id='albumEachImg' src=`../albumImgs/${album.id}.jpg`)
@@ -44,7 +43,5 @@ block content
             div(id=`review_content_${review.id}`)= review.content
             a(href=`/albums/${album.id}/reviews/${review.id}` class=`edit-btn` id=`edit-btn-${review.id}`) Edit
             button(class=`delete-btn` id=`delete-btn-${review.id}`) Delete
-            
-  include footer.pug
-     
 
+  include footer.pug

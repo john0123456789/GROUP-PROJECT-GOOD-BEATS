@@ -15,6 +15,9 @@
     --grey : rgba(180, 178, 174, 1);
 }
 
+* {
+    box-sizing: border-box;
+}
 body {
     display: grid;
     background-color: #edede3;
@@ -28,10 +31,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     background-color: rgb(255, 255, 255);
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     padding: 20px;
     border: 1px solid var(--grey);
     border-radius: 5px;
@@ -41,8 +44,10 @@ body {
     font-family: 'proxima_nova_rgregular', sans-serif;
 }
 
-#login-header {
+#page-header {
     font-size: 36px;
+    font-family: serif;
+    font-weight: bold;
 }
 
 .form-wrapper {
@@ -149,5 +154,6 @@ h4 {
 .logo>span {
     font-family: Montserrat, sans-serif;
     font-weight: 400;
+    font-size: 32px;
     color: #553b08;
 }

@@ -4,23 +4,40 @@ html
       block head
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/navbar.css')
+        link(rel="stylesheet" href="../stylesheets/albums_page.css")
         link(rel='stylesheet' href='/stylesheets/index.css')
+        script(type="module" src="/javascripts/createLibrary.js")
+        script(type="module" src="/javascripts/addAlbumsToLibrary.js")
+        script(type="module" src="/javascripts/deleteReview.js")
+        script(type="module" src="/javascripts/editReview.js")
+        script(type="module" src="/javascripts/deleteAlbum.js" )
+        
   body
       if locals.authenticated
-        span(class='navbar-text px-4') Welcome #{user.username}!
-        form(class='form-inline pr-4' action='/users/logout' method='post')
-          button(class='btn btn-sm btn-warning' type='submit') Logout
-        .navbar
-          a(href='/') Home
-          a(href='/albums') Albums
-          a(href='/libraries') My Libraries
+        .head 
+          .banner 
+            .name Brendan Lau 
+            .name Irving Arreola Palacios 
+            .name John Pham 
+            .name Michael Presley
+          .navbar 
+            .nav-links
+              .logo good
+                span beats
+              .link: a(href="/") Home 
+              .link: a(href="/albums") Albums
+              .link: a(href="/libraries") My Libraries
+              //- .link: a(href="/reviews") Reviews
+            .nav-profile
+              span(class='navbar-text') #{user.username}
+              form(class='form-inline' action='/users/logout' method='post')
+                button(i class="fa fa-sign-out fa-2x" aria-hidden="true" id="logout")
+        link(rel='stylesheet' href='/stylesheets/index.css')
       else
-        span(class='navbar-text px-4')
-          a(class='btn btn-sm btn-dark mr-2' href='/users/login') Login
-          a(class='btn btn-sm btn-dark' href='/users/register') Register
+          a(href='/users/login') Login
+          a(href='/users/register') Register
       block content
-
-
         label Libraries
         if (libraries.length>0)
           ul 

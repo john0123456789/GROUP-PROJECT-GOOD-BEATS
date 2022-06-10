@@ -1,0 +1,68 @@
+h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+#editbuttondiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+#edit,
+#delete {
+    margin: 12px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+#h2 {
+    font-size: 24px;
+}
+
+#listofalbums {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.album-card {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: fit-content;
+    margin: 5px;
+}
+
+#listdiv {
+    display: inline-flex;
+    width: 50%;
+    flex-wrap: wrap;
+    margin-left: 25%;
+    margin-right: 25%;
+    justify-content: space-evenly;
+}
+
+.deleteButton {
+    margin: 8px;
+}
+
+img:hover {
+    width: 152px;
+    height: 152px;
+    filter: drop-shadow(0 0 0.75rem #553b08);
+}

@@ -1,4 +1,4 @@
-
+extends layout.pug
 block content
   form(action=`/albums/${album.id}/reviews/${reviewId}` method="post")
     input(type="hidden" name="_csrf" value=csrfToken)
@@ -16,3 +16,4 @@ block content
       option(value='5') 5
     button(type='submit' id='edit') Submit Edit
     a(href=`/albums/${album.id}`) Cancel
+  include footer.pug

@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     })
 
     save.addEventListener('click', async(e) => {
+        e.preventDefault();
         const libraryId = e.target.value
         const textField = document.getElementById('new-name').value
         console.log(textField)

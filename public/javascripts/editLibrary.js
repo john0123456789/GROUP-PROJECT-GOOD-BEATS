@@ -12,7 +12,14 @@ window.addEventListener('DOMContentLoaded', (e) => {
         const res = await fetch(`/libraries/${libraryId}`, {
             method: 'DELETE',
         })
-        titlePage.remove()
+        const button = document.createElement('a')
+        button.innerHTML = "Back to Libraries"
+        button.href = "/libraries"
+        while (titlePage.firstChild) {
+            titlePage.removeChild(titlePage.firstChild)
+        }
+        button.classList.add('backtolibrary')
+        titlePage.appendChild(button)
 
     })
 

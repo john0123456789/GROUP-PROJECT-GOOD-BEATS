@@ -34,9 +34,9 @@ goodbeats is a full-stack clone of goodreads. On goodbeats users can view a list
 # Code snippets
 ![image](https://user-images.githubusercontent.com/8033523/173161534-6ac6c175-5533-4adf-bd30-74f1e12cadc6.png)
 * LINES 2-5: We used a for loop to grab all the delete buttons associated with our libraries. 
-* LINES 5-6: And then added a 'click' event listener to all the delete buttons that were iterated through. 
-* LINES 8-9: We then assigned a value to albumId so that we could grab the associated id's in our pug file. 
-* LINES 10-13: After everything is said and done the event listener removes the associated album(s) in our library and  deletes it dynamically, so the user doesn't get redirected or have to reload the page.
+* LINES 5-6: And then added a `'click' eventListener` to all the delete buttons that were iterated through. 
+* LINES 8-9: We then assigned a value to `albumId` so that we could grab the associated id's in our pug file. 
+* LINES 10-13: After everything is said and done the `eventListener` removes the associated album(s) in our library and  deletes it dynamically, so the user doesn't get redirected or have to reload the page.
 
 ![image](https://user-images.githubusercontent.com/8033523/173162328-480c3d2f-1fbf-4197-9bc4-845dbd5785c3.png)
 * Here we have a route handler associated with our eventListener from above.

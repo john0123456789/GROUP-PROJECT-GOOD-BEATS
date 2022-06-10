@@ -1,15 +1,26 @@
 extends layout.pug
 
 block content
-    h1= `${library.User.username}'s ${library.name} Library`
+    script(src="/javascripts/deleteAlbum.js" type="module")
+    script(src="/javascripts/editLibrary.js" type="module")
     input(type='hidden' value= library.id id='libraryId') 
-    if (allAlbums.length<1)
-    h2 NO ALBUMS IN THIS LIBRARY
-    ul         
-    each album in allAlbums 
-        li.album-titles: a(href=`/albums/${album.id}`)= album.title 
-        
-        button(class='deleteButton' value= album.id) Delete
+    div(id='titlelib')
+        input(type="hidden" id="idGrabber" value=library.User.username)
+        title= `${library.name}`
+        h1#heading= `${library.User.username}'s ${library.name} Library`
+        button(id='edit' value=library.id) Edit
+        form(action=`/libraries/${library.id}` class="hidden" id="edit-library-form")
+            label New library name: 
+            input(type="text" id="new-name" value=library.name) 
+            button(id='save' value=library.id) Save 
+            button(id='cancel') Cancel
+        button(id='delete' value=library.id) Delete
+        input(type='hidden' value= library.id id='libraryId') 
+        if (allAlbums.length<1)
+            h2 NO ALBUMS IN THIS LIBRARY
+        ul         
+            each album in allAlbums 
+                li(id=`album-titles-${album.id}`): a(href=`/albums/${album.id}`)= album.title 
+                
+                button(class='deleteButton' value= album.id) Delete
 
-    //- header 
-    //-     title= `${library.name}`

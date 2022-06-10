@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', (e) => {
 const deleteBtn = document.querySelectorAll(`.delete-btn`)
-console.log(deleteBtn)
+
 for (let i = 0; i < deleteBtn.length; i++) {
     const btn = deleteBtn[i];
 

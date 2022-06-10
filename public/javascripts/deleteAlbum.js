@@ -4,9 +4,12 @@ window.addEventListener('DOMContentLoaded', (e) => {
     for (let i = 0; i < deleteButtons.length; i++) {
         const button = deleteButtons[i]
         button.addEventListener('click', async (e) => {
-            const albumId = e.target.value
             e.preventDefault()
-            return await fetch(`/albumlibraries/${libraryId}/${albumId}`, {
+            const albumId = e.target.value
+            const li = document.getElementById(`album-titles-${albumId}`)
+            li.remove();
+            button.remove()
+            await fetch(`/albumlibraries/${libraryId}/${albumId}`, {
                 method: "DELETE",
             })
         })

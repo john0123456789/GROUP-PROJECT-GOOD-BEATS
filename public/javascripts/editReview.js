@@ -12,12 +12,14 @@
 //             form.classList.add('hidden')
 //         }
 
+
 //         const submitBtn = document.getElementById(`edit-submit-${reviewId}`)
 //         submitBtn.addEventListener('click', async (submitEvent) => {
 //           submitEvent.preventDefault()
 //           const title = document.getElementById(`${reviewId}-edit-title`).value
 //           const content = document.getElementById(`${reviewId}-edit-content`).value
 //           const rating = document.getElementById(`${reviewId}-edit-rating`).value
+
 
 //         //   console.log(title, content)
 

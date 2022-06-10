@@ -12,34 +12,37 @@ html
         script(type="module" src="/javascripts/deleteReview.js")
         script(type="module" src="/javascripts/editReview.js")
         script(type="module" src="/javascripts/deleteAlbum.js" )
-        
+
   body
       if locals.authenticated
-        .head 
-          .banner 
-            .name Brendan Lau 
-            .name Irving Arreola Palacios 
-            .name John Pham 
+        .head
+          .banner
+            .name Brendan Lau
+            .name Irving Arreola Palacios
+            .name John Pham
             .name Michael Presley
-          .navbar 
+          .navbar
             .nav-links
               .logo good
                 span beats
-              .link: a(href="/") Home 
+              .link: a(href="/") Home
               .link: a(href="/albums") Albums
               .link: a(href="/libraries") My Libraries
               //- .link: a(href="/reviews") Reviews
             .nav-profile
               span(class='navbar-text') #{user.username}
               form(class='form-inline' action='/users/logout' method='post')
-                button(i class="fa fa-sign-out fa-2x" aria-hidden="true" id="logout")
-        link(rel='stylesheet' href='/stylesheets/index.css')
+                button(class="fa fa-sign-out fa-2x" aria-hidden="true" id="logout")
+                  img(id="logout_button" src="/126467.png", alt="logout img")
+
+
       else
           a(href='/users/login') Login
           a(href='/users/register') Register
       block content
+
         label Libraries
         if (libraries.length>0)
-          ul 
-            each library in libraries 
+          ul
+            each library in libraries
               li: a(href=`/libraries/${library.id}`)= library.name

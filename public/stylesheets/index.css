@@ -1,6 +1,6 @@
 
 body{
-    width:900px;
+    margin: auto;
     background-color: #edede3;
 }
 
@@ -42,10 +42,10 @@ p{
 
 .album-container{
     display: inline-flex;
-    width:100%;
+    width:50%;
     flex-wrap: wrap;
-    margin-left: 33%;
-    margin-right: 33%;
+    margin-left: 25%;
+    margin-right: 25%;
     justify-content: space-evenly;
 }
 
@@ -58,11 +58,11 @@ p{
 }
 
 .header-container{
-    width:100%;
+    width:50%;
     text-align: center;
     margin-bottom: 100px;
-    margin-left: 33%;
-    margin-right: 33%;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 h2{

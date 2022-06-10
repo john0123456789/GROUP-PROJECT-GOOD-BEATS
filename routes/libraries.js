@@ -27,8 +27,8 @@ router.get('/:id(\\d+)', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    const {userId} = req.session.auth
-    const libraries = await db.Library.findAll({where: {userId}})
+    const { userId } = req.session.auth
+    const libraries = await db.Library.findAll({ where: { userId } })
 
     res.render('libraries', { libraries })
 })
@@ -59,14 +59,30 @@ router.post(`/:id(\\d+)`, asyncHandler(async (req, res) => {
 }
 ))
 
-router.put(`/:id(\\d+)`, async(req, res) => {
+router.put('/:id(\\d+)', async (req, res) => {
     const libraryId = req.params.id;
-    // const library = db.Library.findByPk(libraryId);
-
-    // library.name = req.body.name;
-    // await library.save()
+    const library = await db.Library.findByPk(libraryId);
+    const { userId } = req.session.auth
+    console.log(library)
+    library.name = req.body.name;
+    library.userId = userId
+    console.log(library)
+    await library.save()
     console.log('successful')
-    
+    res.json({ message: 'Success!', library })
+})
+
+
+router.delete('/:id(\\d+)', async (req, res) => {
+    // console.log('you have arrived at the delete route handler')
+    const library = await db.Library.findByPk(req.params.id)
+    const allAlbums = await db.AlbumLibrary.findAll({ where: { libraryId: req.params.id } })
+    for (let i = 0; i < allAlbums.length; i++) {
+        const album = allAlbums[i]
+        album.destroy()
+    }
+    await library.destroy()
+    return res.render('/')
 })
 
 

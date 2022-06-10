@@ -6,6 +6,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
   demoButton.addEventListener('click', (e) => {
     email.value = 'demo@netscape.com';
     password.value = '123';
-  })
-}
+    })
+  }
 })

@@ -7,5 +7,14 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1= title
-  p Welcome to your Project Skeleton
+  .header-container
+    h1 Welcome to
+    span.logo goodbeats
+    h2 What will you discover?
+  .album-container
+     each album in albums
+      .album-card
+        p= album.title
+        a(href=`/albums/${album.id}`)
+          img(src=`../albumImgs/${album.id}.jpg`)
+        p= album.artist

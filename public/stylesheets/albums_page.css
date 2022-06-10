@@ -16,3 +16,8 @@ body{
   font-size: larger;
   font-weight: bolder;
 }
+
+img{
+  width: 300px;
+  height:300px;
+}

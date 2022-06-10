@@ -14,12 +14,12 @@ html
           a(href='/') Home
           a(href='/albums') Albums
           a(href='/libraries') My Libraries
-        
       else
         span(class='navbar-text px-4')
           a(class='btn btn-sm btn-dark mr-2' href='/users/login') Login
           a(class='btn btn-sm btn-dark' href='/users/register') Register
       block content
+
 
         label Libraries
         if (libraries.length>0)

@@ -1,3 +1,6 @@
-ul 
-    each library in libraries 
-        li= library.name
+extends layout.pug
+
+block content
+    ul 
+        each library in libraries 
+            li: a(href=`/libraries/${library.id}`)= library.name

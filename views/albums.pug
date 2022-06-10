@@ -1,8 +1,16 @@
-html
-  head
-   link(rel="stylesheet" href="../stylesheets/albums_page.css")
+
+extends layout.pug
+
+block content
+  link(rel="stylesheet" href="../stylesheets/albums_page.css")
   body
-   ul#album-list
-    each album in albums
-      li.album-artists= album.artist
-      li.album-titles: a(href=`/albums/${album.id}`)= album.title
+   .albums-header
+    h1 Albums
+    h2 Checkout one of these awesome albums!
+   .album-container
+     each album in albums
+      .album-card
+        p= album.title
+        a(href=`/albums/${album.id}`)
+          img(src=`../albumImgs/${album.id}.jpg`)
+        p= album.artist

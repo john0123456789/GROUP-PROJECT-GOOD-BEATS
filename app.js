@@ -10,6 +10,7 @@ const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth');
 
 const indexRouter = require('./routes/index');
+const splashRouter = require('./routes/splash');
 const usersRouter = require('./routes/users');
 const albumsRouter = require('./routes/albums');
 const reviewsRouter = require('./routes/reviews');
@@ -45,6 +46,7 @@ store.sync();
 
 app.use(restoreUser);
 app.use('/', indexRouter);
+app.use('/', splashRouter);
 app.use('/users', usersRouter);
 app.use('/albums', albumsRouter);
 app.use('/reviews', reviewsRouter);

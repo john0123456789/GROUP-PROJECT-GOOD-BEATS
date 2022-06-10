@@ -103,10 +103,10 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        title: "Daniel Caesar",
+        title: "Freudian",
         trackLists: "Get You,Best Part,Hold Me Down,Neu Roses,Loose,We Find Love,Blessed,Take Me Away,Transform,Freudian",
         genre: "R&B",
-        artist: "Kali Uchis",
+        artist: "Daniel Caesar",
         releaseDate: 2017,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -268,7 +268,7 @@ module.exports = {
         title: "Exodus",
         trackLists: "Natural Mystic,So Much Things To SyntaxError, Guiltiness,The Heathen,Exodus,Jamming,Waiting In Vain,Turn Your Lights Down Low,Three Little BirdsOne Love / People Get Ready",
         genre: "Reggae",
-        artist: "Mob Marley",
+        artist: "Bob Marley",
         releaseDate: 1997,
         createdAt: new Date(),
         updatedAt: new Date()

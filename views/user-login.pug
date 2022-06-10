@@ -8,8 +8,8 @@ html
       .logo good
         span beats
       .form-container
+        h2(id='page-header') Sign In
         form(action='/users/login' method='post' class='form-wrapper')
-          h2(id='login-header') Sign In
           +validationErrorSummary(errors)
           input(type='hidden' name='_csrf' value=csrfToken)
           +field('Email', 'emailAddress', emailAddress)

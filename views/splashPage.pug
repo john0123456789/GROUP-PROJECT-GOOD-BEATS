@@ -1,0 +1,8 @@
+html
+  head
+  body
+  include index.pug
+  div#img-container
+    each album in albums
+      .album-card
+        p= album.title

@@ -5,3 +5,25 @@ h1 {
 .hidden {
     display: none;
 }
+
+img{
+    width:150px;
+    height:150px;
+    margin: 5px;
+    display:inline-flex;
+}
+
+p{
+    display: flex;
+    bottom: 1px;
+    left: 5px;
+    margin: 0;
+}
+
+.album-card{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: fit-content;
+    margin: 5px;
+}

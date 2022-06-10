@@ -7,5 +7,9 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1= title
-  p Welcome to your Project Skeleton
+  .album-container
+     each album in albums
+      .album-card
+        p= album.title
+        img(src=`../albumImgs/${album.id}.jpg`)
+        p= album.artist

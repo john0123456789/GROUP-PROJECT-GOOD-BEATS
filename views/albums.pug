@@ -4,5 +4,6 @@ html
   body
    ul#album-list
     each album in albums
+      img(src=`../albumImgs/${album.id}.jpg`)
       li.album-artists= album.artist
       li.album-titles: a(href=`/albums/${album.id}`)= album.title

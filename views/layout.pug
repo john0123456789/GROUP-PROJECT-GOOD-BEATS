@@ -15,24 +15,28 @@ html
 
   body
       if locals.authenticated
-        .navbar 
-          .nav-links
-            .logo good
-              span beats
-            .link: a(href="/") Home 
-            .link: a(href="/albums") Albums
-            .link: a(href="/libraries") My Libraries
-            .link: a(href="/reviews") Reviews
-          .nav-profile
-            span(class='navbar-text') Welcome #{user.username}!
-            form(class='form-inline' action='/users/logout' method='post')
-              button Logout
+        .head 
+          .banner 
+            .name Brendan Lau 
+            .name Irving Arreola Palacios 
+            .name John Pham 
+            .name Michael Presley
+          .navbar 
+            .nav-links
+              .logo good
+                span beats
+              .link: a(href="/") Home 
+              .link: a(href="/albums") Albums
+              .link: a(href="/libraries") My Libraries
+              //- .link: a(href="/reviews") Reviews
+            .nav-profile
+              span(class='navbar-text') #{user.username}
+              form(class='form-inline' action='/users/logout' method='post')
+                button(i class="fa fa-sign-out fa-2x" aria-hidden="true" id="logout")
       else
           a(href='/users/login') Login
           a(href='/users/register') Register
       block content
-
-
         label Libraries
         if (libraries.length>0)
           ul

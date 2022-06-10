@@ -6,6 +6,23 @@ body, div, span, a {
     margin: 0;
     padding: 0;
 }
+.head {
+    display: flex;
+    flex-direction: column;
+}
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: #e8acc4;
+    color: #553b08;
+}
+.name {
+    margin: 0 10px;
+    font-weight: 100;
+    font-size: 12px;
+}
 .navbar {
     display: flex;
     justify-content: space-around;
@@ -23,6 +40,10 @@ body, div, span, a {
 }
 .nav-profile {
     display: flex;
+    align-items: center;  
+}
+.navbar-text {
+    margin-right: 15px;
 }
 
 .link {
@@ -39,6 +60,37 @@ body, div, span, a {
     color: white;
     background-color: #402414;
 }
-.logo, span {
-    font-size: 24px;
+
+.logo {
+    margin: 0 10px;
+    font-size: 2em;
+    font-family: Montserrat, sans-serif;
+    font-weight: 100;
+    color: #553b08;
+}
+
+.logo>span {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #553b08;
+}
+
+#logout {
+    width: 50px;
+    height: 50px;
+    padding-left: 10px;
+    text-align: center;
+    background-color: #f8f4ec;
+    border: none;
+}
+#logout:hover {
+    background-color: #402414;
+}
+.fa-sign-out {
+    width: 30px;
+}
+
+.fa-sign-out:hover {
+    color: white;
 }

@@ -1,12 +1,11 @@
 extends layout.pug
 
 block content
-    link(rel='stylesheet' href='/stylesheets/index.css')
+    link(rel='stylesheet' href='/stylesheets/libraries.css')
     script(type="module" src="/javascripts/createLibrary.js")
 
-    h1 My Libraries
     if (libraries.length)
-        ul 
+        ul(id="title") My Libraries
             each library in libraries 
                 li: a(href=`/libraries/${library.id}`)= library.name
     else 

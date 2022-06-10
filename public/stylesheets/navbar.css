@@ -1,5 +1,6 @@
 :root {
     --grey: rgba(180, 178, 174, 1);
+    --brown: #553b08;
 }
 
 body, div, span, a {
@@ -17,13 +18,23 @@ body, div, span, a {
     align-items: center;
     height: 40px;
     background-color: #e8acc4;
-    color: #553b08;
+    color: var( --brown);
     width: 100%;
 }
 .name {
     margin: 0 10px;
     font-weight: 100;
     font-size: 12px;
+}
+.name > a {
+    text-decoration: none;
+    font-size: 12px;
+}
+.name>a:hover {
+    text-decoration: none;
+    font-size: 14px;
+    transition: font-size 0.5s ease;
+    color: #f8f4ec;
 }
 .navbar {
     display: flex;
@@ -68,34 +79,28 @@ body, div, span, a {
     font-size: 2em;
     font-family: Montserrat, sans-serif;
     font-weight: 100;
-    color: #553b08;
+    color: var(--brown);
 }
 
 .logo>span {
     font-family: Montserrat, sans-serif;
     font-weight: 400;
     font-size: 32px;
-    color: #553b08;
+    color: var(--brown);
 }
 
 #logout {
     width: 50px;
-    height: 45px;
-    padding: 0;
-    padding-left: 10px;
+    height: 50px;
     text-align: center;
     background-color: #f8f4ec;
+    color: var(--brown);
     border: none;
 }
 #logout:hover {
     background-color: #402414;
-}
-.fa-sign-out {
-    width: 30px;
-}
-
-.fa-sign-out:hover {
     color: white;
+
 }
 
 #logout_button{

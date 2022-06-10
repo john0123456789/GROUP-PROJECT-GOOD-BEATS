@@ -9,15 +9,16 @@ html
         link(rel='stylesheet' href='/stylesheets/index.css')
         script(type="module" src="/javascripts/deleteReview.js")
         script(type="module" src="/javascripts/editReview.js")
+        script(src="https://kit.fontawesome.com/d20b7fdb87.js" crossorigin="anonymous")
 
   body
       if locals.authenticated
         .head
           .banner
-            .name Brendan Lau
-            .name Irving Arreola Palacios
-            .name John Pham
-            .name Michael Presley
+            .name: a(href="https://www.linkedin.com/in/brendan-lau-b6952919a/") Brendan Lau
+            .name: a(href="https://github.com/Irving-Develops") Irving Arreola Palacios
+            .name: a(href="https://github.com/john0123456789") John Pham
+            .name: a(href="https://www.linkedin.com/in/michael-presley-96729b235/") Michael Presley
           .navbar
             .nav-links
               .logo good
@@ -29,8 +30,9 @@ html
             .nav-profile
               span(class='navbar-text') #{user.username}
               form(class='form-inline' action='/users/logout' method='post')
-                button(class="fa fa-sign-out fa-2x" aria-hidden="true" id="logout")
-                  img(id="logout_button" src="/126467.png", alt="logout img")
+                button(id="logout")
+                  i(class="fa-solid fa-right-from-bracket fa-2x")
+                  //- img(id="logout_button" src="/126467.png", alt="logout img")
 
 
       else

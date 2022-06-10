@@ -8,6 +8,7 @@ block content
     textarea(name="content", cols="30" rows="10")= reviewEdit.content
     label Rating
     select(name="rating" value= reviewEdit.rating)
+      option(value=reviewEdit.rating)= `Current Rating is ${reviewEdit.rating}`
       option(value='1') 1
       option(value='2') 2
       option(value='3') 3

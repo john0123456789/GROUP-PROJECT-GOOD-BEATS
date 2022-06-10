@@ -63,6 +63,7 @@ router.post('/:id(\\d+)', csrfProtection, requireAuth, asyncHandler(async (req, 
 router.get('/:id(\\d+)/reviews/:reviewId(\\d+)', csrfProtection, requireAuth, async(req, res) => {
   const album = await db.Album.findByPk(req.params.id);
   const reviewEdit = await db.Review.findByPk(req.params.reviewId);
+  console.log(reviewEdit.rating)
   res.render('review-edit', {
     title: 'Edit Review',
     reviewEdit,
@@ -100,7 +101,7 @@ router.post('/:id(\\d+)/reviews/:reviewId(\\d+)', csrfProtection, requireAuth, r
   const validatorErrors = validationResult(req);
 
   if (validatorErrors.isEmpty()) {
-    await reviewEdit.update({ title, content, rating });
+    await reviewEdit.save({ title, content, rating });
     res.redirect(`/albums/${reviewEdit.id}`)
   } else {
     const errors = validatorErrors.array().map((error) => error.msg);

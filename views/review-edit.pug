@@ -1,17 +1,18 @@
 
 block content
-  form(action=`/album/${album.id}` method="post" id=`edit-form-${review.id}`)
+  form(action=`/albums/${album.id}` method="post")
     input(type="hidden" name="_csrf" value=csrfToken)
     label Title
-    input(type="text" name="title" id=`${review.id}-edit-title` required)
+    input(type="text" name="title" value= reviewEdit.title)
     label Content
-    textarea(name="content", cols="30" rows="10", id=`${review.id}-edit-title` required)
+    textarea(name="content", cols="30" rows="10")= reviewEdit.content
     label Rating
-    select(name="rating" id=`${review.id}-edit-rating` required)
-      option 1
-      option 2
-      option 3
-      option 4
-      option 5
-    button(id=`edit-submit-${review.id}`) Submit Edit
-    button Cancel
+    select(name="rating" value= reviewEdit.rating)
+      option(value='1') 1
+      option(value='2') 2
+      option(value='3') 3
+      option(value='4') 4
+      option(value='5') 5
+
+    button(type='submit' id='edit') Submit Edit
+    a(href=`/albums/${album.id}`) Cancel

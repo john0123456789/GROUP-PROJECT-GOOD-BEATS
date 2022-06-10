@@ -43,5 +43,5 @@ block content
           div(id=`review_header_${review.id}`)= review.title
             span(id=`review_rating_${review.id}`)= `${review.rating}/5`
           div(id=`review_content_${review.id}`)= review.content
-          a(href=`/albums/${album.id}/${review.id}` class=`edit-btn` id=`edit-btn-${review.id}`) Edit
+          a(href=`/albums/${album.id}/reviews/${review.id}` class=`edit-btn` id=`edit-btn-${review.id}`) Edit
           button(class=`delete-btn` id=`delete-btn-${review.id}`) Delete

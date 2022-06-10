@@ -9,6 +9,7 @@ body, div, span, a {
 .head {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .banner {
     display: flex;
@@ -17,6 +18,7 @@ body, div, span, a {
     height: 40px;
     background-color: #e8acc4;
     color: #553b08;
+    width: 100%;
 }
 .name {
     margin: 0 10px;
@@ -40,7 +42,7 @@ body, div, span, a {
 }
 .nav-profile {
     display: flex;
-    align-items: center;  
+    align-items: center;
 }
 .navbar-text {
     margin-right: 15px;
@@ -78,7 +80,8 @@ body, div, span, a {
 
 #logout {
     width: 50px;
-    height: 50px;
+    height: 45px;
+    padding: 0;
     padding-left: 10px;
     text-align: center;
     background-color: #f8f4ec;
@@ -93,4 +96,10 @@ body, div, span, a {
 
 .fa-sign-out:hover {
     color: white;
+}
+
+#logout_button{
+    height: 100%;
+    width: 100%;
+    margin:0;
 }

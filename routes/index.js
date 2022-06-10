@@ -5,7 +5,7 @@ const db = require('../db/models');
 const { requireAuth } = require('../auth.js')
 
 /* GET home page. */
-router.get('/', asyncHandler(async (req, res, next) => {
+router.get('/', requireAuth, asyncHandler(async (req, res, next) => {
   const albums = await db.Album.findAll();
   const { userId } = req.session.auth
   const libraries = await db.Library.findAll({ where: { userId } })

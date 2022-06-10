@@ -89,7 +89,7 @@ router.delete('/:id(\\d+)', requireAuth, async (req, res) => {
         album.destroy()
     }
     await library.destroy()
-    return res.render('/')
+    res.json({ library })
 })
 
 

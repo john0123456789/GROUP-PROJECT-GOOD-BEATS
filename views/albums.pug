@@ -1,7 +1,6 @@
-html
-  head
-   link(rel="stylesheet" href="../stylesheets/albums_page.css")
-  body
+extends layout.pug 
+
+block content
    ul#album-list
     each album in albums
       li.album-artists= album.artist

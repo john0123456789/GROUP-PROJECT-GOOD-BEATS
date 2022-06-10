@@ -1,0 +1,44 @@
+:root {
+    --grey: rgba(180, 178, 174, 1);
+}
+
+body, div, span, a {
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    margin: 0;
+    background-color: #f8f4ec;
+    font-family: "Helvetica Neue",Helvetica,Arial;
+    box-shadow: 0 0 5px var(--grey);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-profile {
+    display: flex;
+}
+
+.link {
+    height: 100%;
+    padding: 15px 15px;
+
+}
+
+.link > a {
+    text-decoration: none;
+}
+
+.link:hover {
+    color: white;
+    background-color: #402414;
+}
+.logo, span {
+    font-size: 24px;
+}

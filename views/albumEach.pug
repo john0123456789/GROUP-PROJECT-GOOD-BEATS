@@ -6,28 +6,30 @@ block content
   script(type="module" src="/javascripts/createLibrary.js")
   link(rel='stylesheet' href='../stylesheets/albumsEach.css')
   body
-    .img-library-container
-      img(id='albumEachImg' src=`../albumImgs/${album.id}.jpg`)
-      div.add-library-container
-        label
-        select(id='libraryName')
-          each library in libraries
-            option(value=library.id)= library.name
-        button(id="addAlbum") Add Album
-        #input-container
-          button(id="create-library") Create New Library
-          form(action="/libraries/new" method="post" class="hidden" id="library-form")
-            input(id='albumId' type='text' class="hidden" value=album.id name="albumId")
-            input(type="hidden" name="_csrf" value=csrfToken)
-            label Library name
-            input(type="text" name="name")
-            button(id="add") Add
-            button(id="cancel") Cancel
-    .album-info-container
-      h1= album.title
-      ol#tracklist TRACK LIST
-        each track in trackList
-          li= track
+    .album-list-container
+      .img-library-container
+        img(id='albumEachImg' src=`../albumImgs/${album.id}.jpg`)
+        div.add-library-container
+          label
+          select(id='libraryName')
+            each library in libraries
+              option(value=library.id)= library.name
+          button(id="addAlbum") Add Album
+          #input-container
+            button(id="create-library") Create New Library
+            form(action="/libraries/new" method="post" class="hidden" id="library-form")
+              input(id='albumId' type='text' class="hidden" value=album.id name="albumId")
+              input(type="hidden" name="_csrf" value=csrfToken)
+              label Library name
+              input(type="text" name="name")
+              button(id="add") Add
+              button(id="cancel") Cancel
+      .album-info-container
+        h1#album-title-header= album.title
+        p#album-artist= `Artist: ${album.artist}`
+        ol#tracklist TRACK LIST
+          each track in trackList
+            li= track
 
 
 
@@ -38,10 +40,11 @@ block content
         each review in reviews
           p(id=`review_id` class=`hidden review`)= review.id
           div(id=`review_${review.id}`)
-            div(id=`review_header_${review.id}`)= review.title
-              span(id=`review_rating_${review.id}`)= `${review.rating}/5`
-            div(id=`review_content_${review.id}`)= review.content
-            a(href=`/albums/${album.id}/reviews/${review.id}` class=`edit-btn` id=`edit-btn-${review.id}`) Edit
-            button(class=`delete-btn` id=`delete-btn-${review.id}`) Delete
+            div(class='review-head' id=`review_header_${review.id}`)= review.title
+              span(class='rating-span' id=`review_rating_${review.id}`)= `${review.rating}/5`
+            div(class='review-content' id=`review_content_${review.id}`)= review.content
+            .edit-and-delete
+              a(href=`/albums/${album.id}/reviews/${review.id}` class=`edit-btn` id=`edit-btn-${review.id}`) Edit
+              button(class=`delete-btn` id=`delete-btn-${review.id}`) Delete
 
   include footer.pug

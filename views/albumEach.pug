@@ -36,10 +36,10 @@ block content
 
 
   .reviews-container
-        .review--section-header REVIEWS
+        .review-section-header REVIEWS
         a(href=`/albums/${album.id}/reviews/new`) Write a Review
         each review in reviews
-          .each-review-container
+          div(class='each-review-container' id=`each-review-container-${review.id}`)
             p(id=`review_id` class=`hidden review`)= review.id
             p(id='user-review')= `${review.User.username} reviewed this album: `
             div(id=`review_${review.id}`)

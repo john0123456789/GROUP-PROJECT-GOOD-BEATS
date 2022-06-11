@@ -40,7 +40,7 @@ h2 {
     /* align-items: center; */
 }
 
-.album-card {
+.album-library-card {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -61,7 +61,12 @@ h2 {
     margin: 8px;
 }
 
-img:hover {
+#library-album-img{
+    height: 150px;
+    width: 150px;
+}
+
+#library-album-img:hover {
     width: 152px;
     height: 152px;
     filter: drop-shadow(0 0 0.75rem #553b08);

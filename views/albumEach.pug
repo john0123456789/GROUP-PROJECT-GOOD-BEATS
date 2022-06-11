@@ -39,6 +39,7 @@ block content
         a(href=`/albums/${album.id}/reviews/new`) Write a Review
         each review in reviews
           p(id=`review_id` class=`hidden review`)= review.id
+          p(id='user-review')= `${review.User.username} reviewed this album: `
           div(id=`review_${review.id}`)
             div(class='review-head' id=`review_header_${review.id}`)= review.title
               span(class='rating-span' id=`review_rating_${review.id}`)= `${review.rating}/5`

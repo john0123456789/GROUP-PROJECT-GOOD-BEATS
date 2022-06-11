@@ -5,7 +5,7 @@ block content
     link(rel='stylesheet' href='/stylesheets/library.css')
     script(src="/javascripts/deleteAlbum.js" type="module")
     script(src="/javascripts/editLibrary.js" type="module")
-    input(type='hidden' value= library.id id='libraryId') 
+    input(type='hidden' value= library.id id='libraryId')
     div(id='titlelib')
         input(type="hidden" id="idGrabber" value=library.User.username)
         h1#heading= `${library.User.username}'s ${library.name} Library`
@@ -13,20 +13,20 @@ block content
             button(id='edit' value=library.id) Edit Library Name
             button(id='delete' value=library.id) Delete Library
         form(action=`/libraries/${library.id}` class="hidden" id="edit-library-form")
-            label New library name: 
-            input(type="text" id="new-name" value=library.name) 
-            button(id='save' value=library.id) Save 
+            label New library name:
+            input(type="text" id="new-name" value=library.name)
+            button(id='save' value=library.id) Save
             button(id='cancel') Cancel
-        input(type='hidden' value= library.id id='libraryId') 
+        input(type='hidden' value= library.id id='libraryId')
         h2#h2 Albums
         if (allAlbums.length<1)
             h2 NO ALBUMS IN THIS LIBRARY
-        ol#listofalbums         
+        ol#listofalbums
             #listdiv
                 each album in allAlbums
-                    .album-card
+                    .album-library-card
                         p= album.title
                         a(href=`/albums/${album.id}`)
-                            img(src=`../albumImgs/${album.id}.jpg`)
+                            img(id="library-album-img" src=`../albumImgs/${album.id}.jpg`)
                         p= album.artist
     include footer.pug

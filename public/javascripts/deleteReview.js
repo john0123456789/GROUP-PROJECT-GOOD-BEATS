@@ -13,7 +13,7 @@ btn.addEventListener('click', async(e) => {
     })
     const data = await res.json()
     if (data.message = "Success!") {
-    const container = document.getElementById(`review_${reviewId}`)
+    const container = document.getElementById(`each-review-container-${reviewId}`)
     container.remove()
     } else {
         // errors

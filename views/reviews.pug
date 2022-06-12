@@ -1,21 +1,28 @@
 extends layout.pug
 
 block content
-  form(action=`/albums/${album.id}`, method="post")
-    input(type="hidden" name="_csrf" value=csrfToken)
-    label Title
-    input(type="text" name="title" required)
-    label Content
-    textarea(name="content", cols="30", rows="10" required)
-    label Rating
-    select(name="rating" value="og_review" required)
-      option 1
-      option 2
-      option 3
-      option 4
-      option 5
-    button Submit Review
-    a(href=`/albums/${album.id}`) Cancel
+  link(rel="stylesheet" href="/stylesheets/newReview.css")
+  .form-new-container
+    form(action=`/albums/${album.id}`, method="post")
+      input(type="hidden" name="_csrf" value=csrfToken)
+      .new-review-title-rating
+        .new-review-title
+          label Title
+          input(id="new-review-title-input" type="text" name="title" required)
+        .new-review-rating
+          label Rating
+          select(name="rating" value="og_review" required)
+            option 1
+            option 2
+            option 3
+            option 4
+            option 5
+      .new-review-content
+        label Content
+        textarea(id="new-review-content-area" name="content", cols="30", rows="10" required)
+      .new-review-submit-cancel
+        .new-review-button
+          button Submit Review
+        .new-review-cancel
+          a(href=`/albums/${album.id}`) Cancel
   include footer.pug
-    
-    

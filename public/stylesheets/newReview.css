@@ -1,0 +1,53 @@
+*{
+  font-family: "Helvetica Neue",Helvetica,Arial;;
+}
+
+body{
+  margin:auto;
+  background-color: #f7f5f5;
+}
+
+
+
+.form-new-container{
+  display:flex;
+  flex-direction: column;
+  width: 50%;
+  height: 400px;
+  margin-top: 50px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 100px;
+}
+
+.new-review-title-rating{
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-bottom: 10px;
+}
+
+.new-review-title{
+  width: 60%;
+}
+
+#new-review-title-input{
+  width: 80%;
+  text-align: left;
+}
+
+.new-review-content{
+  width: 100%;
+}
+
+#new-review-content-area{
+  width: 100%;
+}
+
+.new-review-submit-cancel{
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top:10px;
+}

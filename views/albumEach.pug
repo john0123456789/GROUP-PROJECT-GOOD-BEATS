@@ -36,16 +36,17 @@ block content
 
 
   .reviews-container
-        .review--section-header REVIEWS
+        .review-section-header REVIEWS
         a(href=`/albums/${album.id}/reviews/new`) Write a Review
         each review in reviews
-          .each-review-container
+          div(class='each-review-container' id=`each-review-container-${review.id}`)
             p(id=`review_id` class=`hidden review`)= review.id
             p(id='user-review')= `${review.User.username} reviewed this album: `
             div(id=`review_${review.id}`)
               div(class='review-head' id=`review_header_${review.id}`)= review.title
                 span(class='rating-span' id=`review_rating_${review.id}`)= `${review.rating}/5`
               div(class='review-content' id=`review_content_${review.id}`)= review.content
+            if user.username === review.User.username
               .edit-and-delete
                 a(href=`/albums/${album.id}/reviews/${review.id}` class=`edit-btn` id=`edit-btn-${review.id}`) Edit
                 button(class=`delete-btn` id=`delete-btn-${review.id}`) Delete

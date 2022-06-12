@@ -1,4 +1,5 @@
 body{
+  margin:auto;
   background-color: #f7f5f5;
 }
 
@@ -10,6 +11,8 @@ body{
   margin: 20px;
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  width: 300px;
 }
 
 .album-artists{
@@ -23,14 +26,95 @@ body{
 }
 
 .add-library-container{
-  display: block;
+  display: flex;
   position: relative;
+  margin-top: 10px;
+  justify-content: center;
 }
 
 .album-info-container{
   display: inline-flex;
+  flex-direction: column;
+  margin-left: 50px;
+  width: auto;
 }
 
 img:hover{
   filter: drop-shadow(none);
+}
+
+.album-list-container{
+  display:inline-flex;
+  width: 50%;
+  margin-top: 50px;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 100px;
+}
+
+#album-title-header{
+  height: auto;
+  color:black;
+}
+
+.img-library-container{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#album-artist{
+  text-align: left;
+  padding-left: 10px;
+  font-size: 12px;
+}
+
+.reviews-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-head{
+  margin-top: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.rating-span{
+  margin-left: 10px;
+}
+
+.review-content{
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.edit-and-delete{
+  display: inline-flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 10px;
+}
+
+#user-review{
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.review-section-header{
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.each-review-container{
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 500px;
+  padding: 10px;
+  margin: 10px;
 }

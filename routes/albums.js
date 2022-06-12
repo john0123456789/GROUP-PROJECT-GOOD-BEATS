@@ -26,19 +26,15 @@ router.get('/', requireAuth, async (req, res) => {
 
 
 router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
-
-  const users = await db.User.findAll();
-
   const album = await db.Album.findByPk(req.params.id);
   const { userId } = req.session.auth
   const libraries = await db.Library.findAll({ where: { userId } })
   const trackList = album.trackLists.split(',')
-  console.log('reqParams: ', req.params)
   const reviews = await db.Review.findAll({
     where: {
-
       albumId: req.params.id
-    }
+    },
+    include: 'User'
   })
   res.render('albumEach', { album, trackList, reviews, libraries, csrfToken: req.csrfToken() })
 }))

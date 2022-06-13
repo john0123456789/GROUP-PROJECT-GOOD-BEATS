@@ -44,4 +44,7 @@ goodbeats is a full-stack clone of goodreads. On goodbeats users can view a list
 * LINES 9-11: Because we used a JOIN TABLE on albumLibrary we had to use `.findOne` and key in on the targeted `albumId` that has a targeted `libraryId`.
 * LINE 12: Once found the specified album will be deleted from desired library.
 
-
+# Future Features
+* Search Bar to look up albums by album info i.e. name, artist.
+* Profile pages for users to show others their amazing taste in music.
+* Adding link to albums so users can conveniently be redirected to albums they want to listen to.

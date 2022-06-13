@@ -3,46 +3,55 @@
     --brown: #553b08;
 }
 
-body, div, span, a {
+body,
+div,
+span,
+a {
     margin: 0;
     padding: 0;
 }
+
 .head {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .banner {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
     background-color: #e8acc4;
-    color: var( --brown);
+    color: var(--brown);
     width: 100%;
 }
+
 .name {
     margin: 0 10px;
     font-weight: 100;
     font-size: 12px;
 }
-.name > a {
+
+.name>a {
     text-decoration: none;
     font-size: 12px;
 }
+
 .name>a:hover {
     text-decoration: none;
     font-size: 14px;
     transition: font-size 0.5s ease;
     color: #f8f4ec;
 }
+
 .navbar {
     display: flex;
     justify-content: space-around;
     height: 50px;
     margin: 0;
     background-color: #f8f4ec;
-    font-family: "Helvetica Neue",Helvetica,Arial;
+    font-family: "Helvetica Neue", Helvetica, Arial;
     box-shadow: 0 0 5px var(--grey);
 }
 
@@ -51,10 +60,12 @@ body, div, span, a {
     justify-content: center;
     align-items: center;
 }
+
 .nav-profile {
     display: flex;
     align-items: center;
 }
+
 .navbar-text {
     margin-right: 15px;
 }
@@ -65,7 +76,7 @@ body, div, span, a {
 
 }
 
-.link > a {
+.link>a {
     text-decoration: none;
 }
 
@@ -79,7 +90,7 @@ body, div, span, a {
     font-size: 2em;
     font-family: Montserrat, sans-serif;
     font-weight: 100;
-    color: var(--brown);
+    color: grey;
 }
 
 .logo>span {
@@ -97,14 +108,15 @@ body, div, span, a {
     color: var(--brown);
     border: none;
 }
+
 #logout:hover {
     background-color: #402414;
     color: white;
 
 }
 
-#logout_button{
+#logout_button {
     height: 100%;
     width: 100%;
-    margin:0;
+    margin: 0;
 }

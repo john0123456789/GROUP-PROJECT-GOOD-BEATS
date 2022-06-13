@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
         button.addEventListener('click', async (e) => {
             e.preventDefault()
             const albumId = e.target.value
-            const li = document.getElementById(`album-titles-${albumId}`)
+            const li = document.getElementById(`library-card-${albumId}`)
             li.remove();
             button.remove()
             await fetch(`/albumlibraries/${libraryId}/${albumId}`, {

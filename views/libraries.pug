@@ -7,15 +7,15 @@ block content
     if (libraries.length)
         ul(id="title") My Libraries
             each library in libraries 
-                li: a(href=`/libraries/${library.id}`)= library.name
+                li: a(href=`/libraries/${library.id}` id="library")= library.name
     else 
         h2 YOU DO NOT HAVE ANY LIBRARIES, OR FRIENDS 
     #input-container
-    button(id="create-library") Create New Library
-    form(action="/libraries/new" method="post" class="hidden" id="library-form")
-      input(type="hidden" name="_csrf" value=csrfToken)
-      label Library name
-      input(type="text" name="name")
-      button(id="add") Add
-      button(id="cancel") Cancel
+        button(id="create-library") Create New Library
+        form(action="/libraries/new" method="post" class="hidden" id="library-form")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            label Library name
+            input(type="text" name="name" id="library-name")
+            button(id="add") Add
+            button(id="cancel") Cancel
     include footer.pug

@@ -1,3 +1,5 @@
+// for future if we want edit review to be dynamic (in progress)
+
 // const editBtn = document.querySelectorAll(`.edit-btn`)
 
 // for (let i = 0; i < editBtn.length; i++) {

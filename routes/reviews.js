@@ -14,6 +14,9 @@ const {requireAuth} = require('../auth.js');
     }))
 
 
+
+  // for future use to make edit review dynamic (in progress)
+
   // router.put('/:id(\\d+)', async(req, res) => {
   //     const review = await Review.findByPk(req.params.id)
   //     review.title = req.body.title

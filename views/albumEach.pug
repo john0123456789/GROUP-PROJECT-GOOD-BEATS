@@ -25,7 +25,7 @@ block content
               input(id='albumId' type='text' class="hidden" value=album.id name="albumId")
               input(type="hidden" name="_csrf" value=csrfToken)
               label Library name
-              input(type="text" name="name" id="library-name")
+              input(type="text" name="name" id="library-name" required)
               button(id="add") Add
               button(id="cancel") Cancel
       .album-info-container

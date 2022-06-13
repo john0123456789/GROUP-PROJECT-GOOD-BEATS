@@ -24,9 +24,10 @@ block content
         ol#listofalbums
             #listdiv
                 each album in allAlbums
-                    .album-library-card
+                    .album-library-card(id=`library-card-${album.id}`)
                         p= album.title
                         a(href=`/albums/${album.id}`)
                             img(id="library-album-img" src=`../albumImgs/${album.id}.jpg`)
                         p= album.artist
+                        button(class='deleteButton' value=album.id) Delete
     include footer.pug
